@@ -1,0 +1,6498 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OFF RECORD ARCHIVE</title>
+
+    <style>
+        body {
+            font-family: "Trebuchet MS", sans-serif;
+            margin: 0;
+            background-color: #111111;
+        }
+
+        header {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 40px;
+}
+
+.product {
+    background-color: #8E8E8E;
+    padding: 20px;
+    width: 600px;
+    max-width: 80vw;
+    text-align: center;
+    border-radius: 0px;
+margin-top: 30px;
+}
+
+.product img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+.main-image-area {
+    width: calc(100% + 40px);
+    height: 310px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -20px;
+    margin-bottom: 25px;
+}
+.archive-002-image-area {
+    background-color: #F0EFED;
+}
+.main-image-area img {
+    width: auto;
+    height: 270px;
+    max-width: 100%;
+    object-fit: contain;
+}
+.archive-product-title {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.product-archive-number {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.product-brand {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.archive-product-title h2 {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 5px 0 0;
+}
+
+.product p {
+    font-size: 22px;
+    margin: 10px 0;
+}
+.product-price {
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 12px;
+}
+.product img {
+   width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+.color-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.color-options img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    padding: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+box-sizing: border-box;
+}
+.color-options img.selected-color {
+    border: 4px solid black;
+}
+.color-options img:hover {
+    border: 4px solid black;
+    box-sizing: border-box;
+}
+.size-section {
+    margin-top: 25px;
+}
+
+.size-section h3 {
+    margin-bottom: 15px;
+}
+
+.size-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.size-options button {
+    flex: 1;
+    height: 45px;
+    background-color: #111111;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.size-options button:hover {
+    background-color: white;
+    color: #111111;
+}
+
+.size-options button.selected {
+    background-color: black;
+    color: white;
+}
+
+#selected-size {
+    font-size: 14px;
+    margin-top: 15px;
+}
+.add-cart-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #111111;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.add-cart-button:hover {
+    background-color: white;
+    color: #111111;
+}
+
+#cart {
+    position: fixed;
+    top: 0;
+    right: -330px;
+
+    width: 330px;
+    max-width: 90vw;
+    height: 100vh;
+
+    background-color: white;
+
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    z-index: 1000;
+
+    transition: right 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 15px;
+}
+
+.cart-header h2 {
+    margin: 0;
+}
+
+.close-cart {
+    background: none;
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+#cart.open {
+    right: 0;
+}
+
+.cart-item {
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.cart-item button {
+    padding: 6px 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+.quantity-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.quantity-controls button {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.quantity-controls span {
+    font-size: 18px;
+    min-width: 20px;
+}
+.cart-button {
+    margin-left: 15px;
+    padding: 10px 18px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cart-button:hover {
+    background-color: #333;
+}
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.cart-item strong {
+    font-size: 17px;
+}
+
+.cart-item p {
+    font-size: 15px;
+    margin: 8px 0;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+}
+
+.quantity-controls button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #222;
+    background-color: white;
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 1;
+}
+
+.quantity-controls button:hover {
+    background-color: #f3f1eb;
+}
+
+.quantity-controls span {
+    min-width: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+.cart-footer {
+    margin-top: auto;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 20px;
+}
+
+.cart-footer h3 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    margin: 0 0 20px;
+}
+.checkout-button {
+    width: 100%;
+
+    padding: 15px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #333;
+}
+.products {
+    transition: transform 0.5s ease;
+}
+
+body.cart-open .products {
+    transform: translateX(-60px);
+}
+.cart-item {
+    display: flex;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item-image {
+    width: 90px;
+    height: 110px;
+    object-fit: contain;
+    background-color: #f3f1eb;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.cart-item-details {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-details strong {
+    font-size: 15px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.cart-item-details p {
+    font-size: 14px;
+    margin: 6px 0;
+}
+.cart-item-details > button {
+    background: none;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 12px;
+}
+/* MOBILE PHONE SETTINGS */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .cart-button {
+        margin-left: 5px;
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .products {
+        padding: 20px 10px;
+    }
+
+    .product {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .product > img {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    .color-options {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .color-options img {
+        width: 65px;
+        height: 65px;
+    }
+
+    .size-options {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .size-options button {
+        width: 50px;
+        height: 42px;
+    }
+
+    .add-cart-button {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* Cart on phones */
+
+    #cart {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+    }
+
+    #cart.open {
+        right: 0;
+    }
+
+    /* Don't move the product as far on a phone */
+
+    body.cart-open .products {
+        transform: translateX(0);
+    }
+
+}
+
+#checkout {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background-color: #f3f1eb;
+
+    z-index: 2000;
+
+    overflow-y: auto;
+}
+
+.checkout-box {
+    position: relative;
+
+    width: 90%;
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    background-color: white;
+
+    padding: 35px;
+
+    box-sizing: border-box;
+
+    border-radius: 8px;
+}
+
+.close-checkout {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    background: none;
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.checkout-box h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.checkout-box h3 {
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+
+.checkout-box label {
+    display: block;
+
+    margin-top: 12px;
+    margin-bottom: 5px;
+
+    font-size: 14px;
+}
+
+.checkout-box input {
+    width: 100%;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+.checkout-row {
+    display: flex;
+    gap: 15px;
+}
+
+.checkout-row > div {
+    flex: 1;
+}
+
+.checkout-summary {
+    margin-top: 30px;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 10px;
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #ddd;
+
+    font-size: 18px;
+}
+
+.payment-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.payment-button:hover {
+    background-color: #333;
+}
+.shipping-option {
+    margin-top: 20px;
+}
+
+.shipping-option label {
+    margin-bottom: 8px;
+}
+
+.shipping-option select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkout-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.checkout-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 18px;
+}
+#order-review h2 {
+    margin-top: 0;
+}
+
+#order-review p {
+    margin: 8px 0;
+}
+
+.review-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.review-item p {
+    font-size: 14px;
+    margin: 5px 0 0;
+}
+.back-checkout-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+
+    font-size: 14px;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.back-checkout-button:hover {
+    opacity: 0.6;
+}
+.payment-screen {
+    display: none;
+}
+
+.payment-screen h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.payment-subtitle {
+    color: #555;
+    margin-bottom: 25px;
+}
+#order-review .payment-subtitle {
+    color: #111111;
+}
+
+.payment-note {
+    background-color: #f3f1eb;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.payment-section {
+    margin-top: 25px;
+}
+
+.payment-section h3 {
+    margin-bottom: 12px;
+}
+
+.payment-label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.payment-input {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.payment-row {
+    display: flex;
+    gap: 15px;
+}
+
+.payment-row > div {
+    flex: 1;
+}
+
+.test-card-box {
+    background-color: #f3f1eb;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.test-card-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.test-payment-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.test-payment-button:hover {
+    background-color: #333;
+}
+
+.test-payment-button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.test-payment-button:hover {
+    background-color: #333;
+}
+
+.confirmation-screen {
+    display: none;
+    text-align: center;
+}
+
+.confirmation-screen h2 {
+    font-size: 30px;
+}
+
+.confirmation-screen p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+#order-review,
+#payment-screen,
+#confirmation-screen {
+    display: none;
+}
+
+#order-review {
+    width: 100%;
+}
+
+#payment-screen {
+    width: 100%;
+}
+
+#confirmation-screen {
+    width: 100%;
+}
+.buy-now-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 8px;
+    background-color: #111111;
+    color: red;
+    border: 1px solid red;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.buy-now-button:hover {
+    background-color: red;
+    color: #111111;
+}
+.site-header {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+background-image: url("header-texture.png");
+background-size: cover;
+background-position: center;
+}
+
+.header-logo {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 2px;
+
+    background-color: black;
+    color: white;
+    padding: 8px 14px;
+}
+.header-shop {
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: black;
+    color: white;
+    border: none;
+
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: bold;
+
+    padding: 6px 10px;
+
+    cursor: pointer;
+}
+
+.header-shop:hover {
+    opacity: 0.7;
+}
+.header-cart {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-color: black;
+    color: white;
+    border: none;
+
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+
+    padding: 6px 10px;
+position: absolute;
+right: 30px;
+top: 50%;
+transform: translateY(-50%);
+
+background-color: black;
+color: white;
+border: none;
+
+font-size: 16px;
+cursor: pointer;
+font-weight: bold;
+
+display: flex;
+align-items: center;
+
+padding: 6px 10px;
+}
+
+.header-cart:hover {
+    opacity: 0.7;
+}
+.header-cart:hover {
+    opacity: 0.7;
+}
+.header-logo,
+.header-shop,
+.header-cart {
+    background-color: black;
+    color: white;
+    box-sizing: border-box;
+}
+
+.header-shop,
+.header-cart {
+    border: none;
+    padding: 6px 10px;
+}
+
+.header-logo {
+    padding: 8px 14px;
+}
+#cart-count {
+    position: absolute;
+
+    top: -6px;
+    right: -8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    background-color: white;
+    color: black;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+.cart-label {
+    font-size: 20px;
+    margin-left: 6px;
+}
+.product-description {
+    font-size: 12px;
+    color: #555;
+    max-width: 100%;
+    margin: 8px auto 20px;
+}
+.info-menu {
+    width: 100%;
+    max-height: 280px;
+    margin-top: 25px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.info-section {
+    border-bottom: 1px solid #ddd;
+}
+
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.info-tab {
+    width: 100%;
+    padding: 18px 5px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+}
+
+.info-tab:hover {
+    opacity: 0.6;
+}
+
+.info-plus {
+    font-size: 20px;
+    font-weight: normal;
+    transition: transform 0.3s ease;
+}
+
+.info-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 5px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: white;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.info-content.open {
+    padding: 0 5px 18px;
+}
+
+.info-tab.open .info-plus {
+    transform: rotate(45deg);
+}
+.size-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.size-table th,
+.size-table td {
+    padding: 10px 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+color: white;
+}
+
+.size-table th {
+    font-weight: bold;
+}
+
+.size-table tr:last-child td {
+    border-bottom: none;
+}
+
+.site-footer {
+    margin-top: 60px;
+    padding: 40px 20px 30px;
+    background-image: url("header-texture.png");
+    background-size: cover;
+    background-position: center;
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+.footer-text-box {
+    display: inline-block;
+
+    padding: 25px 20px;
+
+    background-color: black;
+    color: white;
+}
+
+.footer-text-box .footer-brand {
+    color: white;
+}
+
+.footer-text-box .footer-links a {
+    color: white;
+}
+
+.footer-text-box .footer-copyright {
+    color: white;
+}
+.footer-brand {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    margin-top: 25px;
+    font-size: 11px;
+    color: white;
+}
+.footer-text-box {
+    padding: 18px 24px 15px;
+
+    background-color: black;
+    color: white;
+
+    border: 1px solid white;
+
+    box-sizing: border-box;
+}
+
+.footer-text-box .footer-links {
+    gap: 20px;
+}
+
+.footer-text-box .footer-copyright {
+    margin-top: 20px;
+}
+.continue-shopping-button {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 10px;
+
+    background-color: white;
+    color: black;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.continue-shopping-button:hover {
+    background-color: #f3f1eb;
+}
+#shipping-returns-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    background-size: 420px auto;
+    background-repeat: repeat;
+    z-index: 3000;
+    overflow-y: auto;
+}
+
+.shipping-returns-box {
+    position: relative;
+    width: min(920px, calc(100% - 40px));
+    max-width: none;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 42px 48px 70px;
+    box-sizing: border-box;
+    background-color: #8E8E8E;
+    color: #111111;
+}
+
+.close-info-page {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.shipping-returns-box h1 {
+    margin: 0 0 35px;
+    text-align: left;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.info-page-section {
+    margin-bottom: 25px;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #111111;
+}
+
+.info-page-section h2 {
+    margin: 0 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 4px solid red;
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.info-page-section h3 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.info-page-section p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333333;
+    margin: 0 0 12px;
+}
+
+.info-page-section p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+
+    .shipping-returns-box {
+        width: 100%;
+        padding: 65px 20px 45px;
+    }
+
+    .shipping-returns-box h1 {
+        font-size: 27px;
+    }
+
+    .info-page-section {
+        padding: 20px;
+    }
+
+    .info-page-section h2 {
+        font-size: 18px;
+    }
+
+    .info-page-section p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .shipping-returns-box {
+        width: 100%;
+        padding: 65px 25px 40px;
+    }
+
+    .shipping-returns-box h1 {
+        font-size: 30px;
+        margin-bottom: 35px;
+    }
+
+    .info-page-section h2 {
+        font-size: 21px;
+    }
+
+    .info-page-section p {
+        font-size: 13px;
+    }
+}
+#shop {
+    position: fixed;
+    top: 0;
+    left: -330px;
+
+    width: 330px;
+    max-width: 90vw;
+    height: 100vh;
+
+    background-color: white;
+
+    box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
+
+    padding: 25px;
+
+    box-sizing: border-box;
+
+    z-index: 1000;
+
+    transition: left 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#shop.open {
+    left: 0;
+}
+/* ARCHIVE 002 PRODUCT PAGE */
+
+#archive-002-page {
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 2500;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+#archive-002-page.open {
+    transform: translateX(0);
+}
+
+.archive-002-page-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background-image: url("header-texture.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.archive-002-page-label {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.close-archive-002 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.shop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 15px;
+}
+
+.shop-header h2 {
+    margin: 0;
+}
+
+.close-shop {
+    background: none;
+    border: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.shop-products {
+    padding-top: 25px;
+    overflow-y: auto;
+}
+.shop-product {
+    margin-bottom: 50px;
+}
+.shop-product {
+    text-align: center;
+}
+
+.shop-product img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: contain;
+
+    background-color: white;
+    border-radius: 6px;
+}
+.archive-002-shop-image {
+    background-color: #f3f1eb;
+}
+.shop-product h3 {
+    font-size: 17px;
+    margin: 15px 0 8px;
+}
+
+.shop-product p {
+    font-size: 15px;
+    margin: 0 0 15px;
+}
+
+.view-product-button {
+    width: 100%;
+    padding: 12px;
+
+    background-color: black;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.view-product-button:hover {
+    background-color: #333;
+}
+
+@media (max-width: 600px) {
+
+    #shop {
+        width: 100%;
+        max-width: 100%;
+        left: -100%;
+    }
+
+    #shop.open {
+        left: 0;
+    }
+}
+.coming-soon-image {
+    width: 100%;
+    height: 220px;
+
+    background-color: #f3f1eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.coming-soon .view-product-button {
+    background-color: #e5e2d9;
+    color: #777;
+    cursor: default;
+}
+
+.coming-soon .view-product-button:hover {
+    background-color: #e5e2d9;
+}
+#orders-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #f3f1eb;
+    z-index: 3500;
+    overflow-y: auto;
+}
+
+.orders-box {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 70px 40px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.orders-box h1 {
+    margin: 0 0 40px;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 900;
+}
+
+.close-orders {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.shop-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.orders-button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.orders-button:hover {
+    opacity: 0.6;
+}
+
+.order-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.order-card-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+
+.order-card-header strong {
+    font-size: 15px;
+}
+
+.order-card-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 8px 0;
+    font-size: 13px;
+}
+
+.order-card-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.empty-orders {
+    text-align: center;
+    color: #777;
+    font-size: 14px;
+    padding: 40px 0;
+}
+
+@media (max-width: 600px) {
+
+    .orders-box {
+        width: 100%;
+        padding: 65px 20px 40px;
+    }
+
+    .orders-box h1 {
+        font-size: 30px;
+    }
+
+    .order-card-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+.archive-card {
+    margin-top: 30px;
+    padding: 25px;
+    background-color: #111111;
+    color: red;
+    border: 5px solid red;
+    text-align: left;
+    font-family: "Trebuchet MS", sans-serif;
+font-weight: bold;
+}
+
+.archive-number {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+
+}
+
+.archive-brand {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+
+.archive-title {
+    font-size: 25px;
+    font-weight: 900;
+    margin-top: 5px;
+
+}
+
+.archive-category {
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+
+}
+
+.archive-divider {
+    height: 5px;
+    background-color: red;
+    margin: 25px 0;
+}
+
+.archive-section {
+    margin-bottom: 25px;
+}
+
+.archive-section:last-child {
+    margin-bottom: 0;
+}
+
+.archive-section h4 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+
+}
+
+.archive-section p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+
+}
+
+.archive-note p {
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   OFF RECORD ARCHIVE — CHECKOUT / ORDER SYSTEM VISUAL PASS
+   Match the front-page archive language: black, concrete,
+   grey, white, square edges, editorial/catalog hierarchy.
+   ========================================================= */
+#checkout {
+    background-color: #111111;
+
+    background-size: 420px auto;
+    background-repeat: repeat;
+    padding: 0;
+}
+
+#checkout::before {
+    content: "OFF RECORD / ARCHIVE";
+    display: block;
+    height: 110px;
+    box-sizing: border-box;
+    padding: 24px 30px;
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.checkout-box {
+    width: min(920px, calc(100% - 40px));
+    max-width: none;
+    margin: 0 auto 60px;
+    padding: 42px 48px 50px;
+    background-color: #8E8E8E;
+    border-radius: 0;
+    box-shadow: none;
+    color: #111111;
+}
+
+.close-checkout {
+    top: 18px;
+    right: 24px;
+    color: white;
+    z-index: 2;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.checkout-box h2,
+.payment-screen h2,
+#order-review h2 {
+    margin: 0 0 8px;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.checkout-box h3,
+.payment-section h3,
+#order-review h3 {
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.checkout-box label,
+.payment-label {
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.checkout-box input,
+.shipping-option select,
+.payment-input {
+    background: white;
+    color: #111111;
+    border: 1px solid #111111;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.checkout-box input:focus,
+.shipping-option select:focus,
+.payment-input:focus {
+    outline: 2px solid #111111;
+    outline-offset: 1px;
+}
+
+.checkout-summary {
+    margin-top: 34px;
+    padding: 24px;
+    background: white;
+    border: 1px solid #111111;
+    border-top: 8px solid #111111;
+}
+
+.checkout-summary h3 {
+    margin-top: 0;
+}
+
+#checkout-items p {
+    margin: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid #111111;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.shipping-option {
+    margin-top: 22px;
+}
+
+.checkout-line {
+    margin-top: 12px;
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.checkout-total {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 3px solid #111111;
+    font-size: 19px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.payment-button,
+.test-payment-button {
+    background-color: #111111;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.payment-button:hover,
+.test-payment-button:hover {
+    background-color: white;
+    color: #111111;
+}
+
+.back-checkout-button {
+    color: white;
+    margin-bottom: 28px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#order-review > p,
+#order-review > h3 {
+    background: white;
+    margin: 0;
+    padding: 12px 18px;
+    border-left: 4px solid #111111;
+}
+
+#order-review > h3 {
+    margin-top: 20px;
+    padding: 12px 18px 8px;
+    border-left: 0;
+    background: transparent;
+}
+
+#order-review > p + h3 {
+    margin-top: 20px;
+}
+
+.review-item {
+    padding: 18px;
+    background: white;
+    border-bottom: 1px solid #111111;
+}
+
+.review-item strong {
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.review-item p {
+    color: #444;
+}
+
+.payment-subtitle {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.payment-note,
+.test-card-box {
+    background: #111111;
+    color: white;
+    border: 1px solid white;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.payment-note strong,
+.test-card-box strong {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#confirmation-screen {
+    padding: 20px 0 10px;
+}
+
+#confirmation-screen h2 {
+    font-size: 38px;
+    letter-spacing: 2px;
+}
+
+#confirmation-screen p {
+    color: white;
+}
+
+#order-number {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: #111111;
+    color: white;
+    border: 1px solid white;
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Orders archive */
+#orders-page {
+    background-color: #111111;
+}
+
+.orders-box {
+    width: min(920px, calc(100% - 40px));
+    max-width: none;
+    min-height: 100vh;
+    padding: 42px 48px 70px;
+    background-color: #8E8E8E;
+}
+
+.orders-box h1 {
+    margin: 0 0 35px;
+    color: white;
+    text-align: left;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.orders-box h1::before {
+    content: "THE ARCHIVE";
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.close-orders {
+    top: 18px;
+    right: 24px;
+    color: white;
+}
+
+.order-card {
+    margin-bottom: 18px;
+    padding: 0;
+    background: white;
+    border: 1px solid #111111;
+    border-radius: 0;
+}
+
+.order-card-header {
+    margin: 0;
+    padding: 16px 18px;
+    background: #111111;
+    color: white;
+    border-bottom: 0;
+}
+
+.order-card-header strong {
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: 2px;
+}
+
+.order-card-date {
+    color: #bbb;
+}
+
+.order-item {
+    padding: 16px 18px;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.order-card-total {
+    margin-top: 0;
+    padding: 10px 18px;
+    border-top: 0;
+    font-size: 13px;
+}
+
+.order-card-total:last-child {
+    padding-top: 15px;
+    padding-bottom: 18px;
+    border-top: 3px solid #111111;
+    font-size: 16px;
+}
+
+.empty-orders {
+    margin: 0;
+    padding: 40px 20px;
+    background: white;
+    border: 1px solid #111111;
+    color: #111111;
+    text-align: center;
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    #checkout::before {
+        height: 86px;
+        padding: 20px;
+    }
+
+    .checkout-box,
+    .orders-box {
+        width: 100%;
+        padding: 32px 20px 45px;
+    }
+
+    .checkout-box h2,
+    .payment-screen h2,
+    #order-review h2,
+    .orders-box h1 {
+        font-size: 27px;
+    }
+
+    .checkout-row,
+    .payment-row {
+        gap: 10px;
+    }
+}
+/* CONTACT PAGE */
+
+#contact-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 3200;
+    overflow-y: auto;
+}
+
+.contact-box {
+    position: relative;
+    width: min(920px, calc(100% - 40px));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 42px 48px 70px;
+    box-sizing: border-box;
+    background-color: #8E8E8E;
+}
+
+.contact-page-header {
+    margin-bottom: 35px;
+}
+
+.contact-page-label {
+    color: red;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.contact-page-header h1 {
+    margin: 0;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.contact-page-divider {
+    height: 5px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: red;
+}
+
+.contact-page-intro {
+    max-width: 700px;
+    margin-bottom: 35px;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.contact-form {
+    background-color: white;
+    border: 1px solid #111111;
+    padding: 30px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: white;
+    color: #111111;
+    border: 1px solid #111111;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+}
+
+.contact-form textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid red;
+    outline-offset: 1px;
+}
+
+.contact-submit-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #111111;
+    color: white;
+    border: 1px solid #111111;
+    border-radius: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.contact-submit-button:hover {
+    background-color: red;
+    color: #111111;
+}
+
+.contact-status {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #111111;
+    color: white;
+    border-left: 4px solid red;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.contact-status.show {
+    display: block;
+}
+
+@media (max-width: 600px) {
+
+    .contact-box {
+        width: 100%;
+        padding: 65px 20px 45px;
+    }
+
+    .contact-page-header h1 {
+        font-size: 29px;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+/* TERMS & CONDITIONS PAGE */
+
+#terms-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 3300;
+    overflow-y: auto;
+}
+
+.terms-box {
+    position: relative;
+    width: min(920px, calc(100% - 40px));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 42px 48px 70px;
+    box-sizing: border-box;
+    background-color: #8E8E8E;
+}
+
+.terms-page-header {
+    margin-bottom: 35px;
+}
+
+.terms-page-label {
+    color: red;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.terms-page-header h1 {
+    margin: 0;
+    color: white;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.terms-page-divider {
+    height: 5px;
+    width: 100%;
+    margin-top: 20px;
+    background-color: red;
+}
+
+.terms-section {
+    margin-bottom: 20px;
+    padding: 25px;
+    background-color: white;
+    border: 1px solid #111111;
+}
+
+.terms-section h2 {
+    margin: 0 0 15px;
+    color: #111111;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.terms-section p {
+    margin: 0 0 12px;
+    color: #333333;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.terms-section p:last-child {
+    margin-bottom: 0;
+}
+
+.terms-section ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #333333;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.terms-section li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+
+    .terms-box {
+        width: 100%;
+        padding: 65px 20px 45px;
+    }
+
+    .terms-page-header h1 {
+        font-size: 29px;
+    }
+
+    .terms-section {
+        padding: 20px;
+    }
+
+    .terms-section h2 {
+        font-size: 14px;
+    }
+
+        .terms-section p,
+    .terms-section ul {
+        font-size: 13px;
+    }
+
+}
+
+#terms-page {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 4000;
+    overflow-y: auto;
+}
+/* ARCHIVE 003 PRODUCT PAGE */
+
+#archive-003-page {
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 2600;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+#archive-003-page.open {
+    transform: translateX(0);
+}
+
+.archive-003-page-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background-image: url("header-texture.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.archive-003-page-label {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.close-archive-003 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+/* ARCHIVE 004 PRODUCT PAGE */
+
+#archive-004-page {
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 2700;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+#archive-004-page.open {
+    transform: translateX(0);
+}
+
+.archive-004-page-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background-image: url("header-texture.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.archive-004-page-label {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.close-archive-004 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.archive-004-image-area {
+    background-color: white;
+}
+/* ARCHIVE 005 PRODUCT PAGE */
+
+#archive-005-page {
+    position: fixed;
+    inset: 0;
+    background-color: #111111;
+    z-index: 2800;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 1s ease;
+}
+
+#archive-005-page.open {
+    transform: translateX(0);
+}
+
+.archive-005-page-header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    box-sizing: border-box;
+    background-image: url("header-texture.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.archive-005-page-label {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.close-archive-005 {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.archive-005-image-area {
+    background-color: white;
+}
+/* FINAL MOBILE POLISH */
+
+@media (max-width: 600px) {
+
+    /* HEADER */
+
+    .site-header {
+        height: 125px;
+        padding: 10px;
+    }
+
+    .header-logo {
+        font-size: 34px;
+        padding: 7px 10px;
+    }
+
+    .header-shop {
+        left: 15px;
+        font-size: 15px;
+        padding: 6px 9px;
+    }
+
+    .header-cart {
+        right: 15px;
+        font-size: 14px;
+        padding: 6px 9px;
+    }
+
+    .cart-label {
+        font-size: 16px;
+    }
+
+    #cart-count {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+        top: -5px;
+        right: -6px;
+    }
+
+
+    /* PRODUCT IMAGE */
+
+    .main-image-area {
+        height: 290px;
+    }
+
+    .main-image-area img {
+        height: 225px;
+        max-width: 90%;
+    }
+
+
+    /* COLOR SELECTORS */
+
+    .color-options {
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .color-options img {
+        width: 62px;
+        height: 62px;
+    }
+
+
+    /* SIZE BUTTONS */
+
+    .size-options {
+        gap: 6px;
+    }
+
+    .size-options button {
+        min-width: 48px;
+        height: 42px;
+    }
+
+
+    /* ADD TO CART / BUY NOW */
+
+    .add-cart-button,
+    .buy-now-button {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    /* SHOP PANEL */
+
+    #shop {
+        width: 100%;
+        max-width: 100%;
+        left: -100%;
+        padding: 20px;
+    }
+
+    .shop-product img {
+        height: 210px;
+    }
+
+    .shop-product h3 {
+        font-size: 15px;
+        line-height: 1.3;
+        min-height: 40px;
+    }
+
+
+    /* CART */
+
+    #cart {
+        width: 100%;
+        max-width: 100%;
+        right: -100%;
+        padding: 20px;
+    }
+
+    .cart-item {
+        gap: 12px;
+    }
+
+    .cart-item-image {
+        width: 75px;
+        height: 95px;
+    }
+
+
+    /* ORDERS */
+
+    #orders-page {
+        width: 100%;
+    }
+
+    .orders-box {
+        width: 100%;
+        padding: 65px 20px 40px;
+    }
+
+    .orders-box h1 {
+        font-size: 27px;
+    }
+
+    .order-card-header {
+        gap: 8px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-text-box {
+        width: min(92%, 420px);
+        padding: 15px 14px 13px;
+    }
+
+    .footer-links {
+        gap: 12px 18px;
+    }
+
+    .footer-links a {
+        font-size: 12px;
+    }
+
+    .footer-copyright {
+        font-size: 10px;
+    }
+
+}
+/* =========================
+   PHASE 7.1 — HOMEPAGE EDITORIAL INTRO
+   ========================= */
+
+.archive-intro {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 70px 25px 60px;
+    background-color: #111111;
+    color: white;
+    text-align: center;
+    border-top: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+}
+
+.archive-intro-eyebrow {
+    margin-bottom: 18px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #aaaaaa;
+}
+
+.archive-intro h2 {
+    margin: 0 auto;
+    max-width: 900px;
+    font-family: Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.05;
+}
+
+.archive-intro-text {
+    max-width: 700px;
+    margin: 25px auto 0;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #dddddd;
+}
+
+.archive-intro-note {
+    margin-top: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .archive-intro {
+        padding: 50px 20px 45px;
+    }
+
+    .archive-intro-eyebrow {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .archive-intro h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    .archive-intro-text {
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    .archive-intro-note {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
+
+}
+</style>
+       
+</head>
+
+<body>
+<div id="archive-002-page">
+
+    <div class="archive-002-page-header">
+
+        <div class="archive-002-page-label">
+            OFF RECORD / ARCHIVE 002
+        </div>
+
+        <button
+            class="close-archive-002"
+            onclick="closeArchive002()">
+            ×
+        </button>
+
+    </div>
+
+    <div class="products">
+
+        <div class="product">
+
+      <div class="main-image-area archive-002-image-area">
+
+                <img
+                    id="main-polo-bear"
+                    src="polo-bear-black.png"
+                    alt="Polo Bear Knit Sweater">
+
+            </div>
+
+           <div class="color-options">
+
+    <img
+        src="polo-bear-black.png"
+        alt="Black"
+        class="selected-color"
+        onclick="changePoloBear('polo-bear-black.png', 'Black', this)">
+
+    <img
+        src="polo-bear-red.png"
+        alt="Red"
+        onclick="changePoloBear('polo-bear-red.png', 'Red', this)">
+
+    <img
+        src="polo-bear-cream.png"
+        alt="Cream"
+        onclick="changePoloBear('polo-bear-cream.png', 'Cream', this)">
+
+    <img
+        src="polo-bear-navy.png"
+        alt="Navy"
+        onclick="changePoloBear('polo-bear-navy.png', 'Navy', this)">
+
+</div>
+
+            <div class="archive-product-title">
+
+                <div class="product-archive-number">
+                    ARCHIVE 002
+                </div>
+
+                <div class="product-brand">
+                    POLO RALPH LAUREN
+                </div>
+
+                <h2 id="polo-product-name">
+    POLO BEAR KNIT (BLACK)
+</h2>
+
+            </div>
+
+            <p class="product-price">$65.00</p>
+
+            <div class="size-section">
+
+                <h3>Select Size</h3>
+
+                <div class="size-options">
+
+    <button onclick="selectPoloSize('S', this)">S</button>
+
+    <button onclick="selectPoloSize('M', this)">M</button>
+
+    <button onclick="selectPoloSize('L', this)">L</button>
+
+    <button onclick="selectPoloSize('XL', this)">XL</button>
+
+</div>
+
+<p id="polo-selected-size">
+    No size selected
+</p>
+            </div>
+
+           <button
+    class="add-cart-button"
+    onclick="addPoloBearToCart()">
+    Add to Cart
+</button>
+
+<button
+    class="buy-now-button"
+    onclick="buyPoloBearNow()">
+    Buy Now
+</button>
+            <div class="archive-card">
+
+                <div class="archive-number">
+                    ARCHIVE NUMBER #002
+                </div>
+
+                <div class="archive-brand">
+                    POLO RALPH LAUREN
+                </div>
+
+                <h3>
+                    POLO BEAR KNIT
+                </h3>
+
+                <div class="archive-category">
+                    KNITWEAR / STREETWEAR
+                </div>
+
+                <div class="archive-divider"></div>
+
+                <div class="archive-section">
+
+                    <h4>
+                        WHY IT MADE THE ARCHIVE
+                    </h4>
+
+                    <p>
+                        THE POLO BEAR HAS BECOME ONE OF THE MOST RECOGNIZABLE
+                        GRAPHICS IN MODERN AMERICAN FASHION, BLENDING HERITAGE
+                        RALPH LAUREN IMAGERY WITH A DISTINCT STREETWEAR PRESENCE.
+                    </p>
+
+                </div>
+
+                <div class="archive-section">
+
+                    <h4>
+                        THE DETAILS
+                    </h4>
+
+                    <p>
+                        <strong>BRAND</strong> — POLO RALPH LAUREN
+                    </p>
+
+                    <p>
+                        <strong>MODEL</strong> — POLO BEAR KNIT
+                    </p>
+
+                    <p>
+                        <strong>CATEGORY</strong> — KNITWEAR
+                    </p>
+
+                    <p>
+                        <strong>SILHOUETTE</strong> — CLASSIC / REGULAR
+                    </p>
+
+                </div>
+
+                <div class="archive-section archive-note">
+
+                    <h4>
+                        ARCHIVE NOTE
+                    </h4>
+
+                    <p>
+                        THE BEAR BECAME THE PIECE.
+                    </p>
+
+                </div>
+
+            </div>
+<div class="info-menu">
+
+    <div class="info-section">
+
+        <button
+            class="info-tab"
+            onclick="toggleInfo(this)">
+
+            <span>Return Policy</span>
+            <span class="info-plus">+</span>
+
+        </button>
+
+        <div class="info-content">
+
+            <p>
+                Customers must contact support (see "Contact" link in footer) and ship within 7 days of the package's arrival. See the shipping footer link for further details.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+        <button
+            class="info-tab"
+            onclick="toggleInfo(this)">
+
+            <span>Size Guide</span>
+            <span class="info-plus">+</span>
+
+        </button>
+
+        <div class="info-content">
+
+            <table class="size-table">
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Length</th>
+                <th>Chest Circumfrence</th>
+                <th>Shoulder</th>
+                <th>Sleeve</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>S</td>
+                <td>58 cm</td>
+                <td>88 cm</td>
+                <td>35 cm</td>
+                <td>56 cm</td>
+            </tr>
+
+            <tr>
+                <td>M</td>
+                <td>59 cm</td>
+                <td>90 cm</td>
+                <td>36 cm</td>
+                <td>57 cm</td>
+            </tr>
+
+            <tr>
+                <td>L</td>
+                <td>60 cm</td>
+                <td>92 cm</td>
+                <td>37 cm</td>
+                <td>58 cm</td>
+            </tr>
+
+            <tr>
+                <td>XL</td>
+                <td>61 cm</td>
+                <td>94 cm</td>
+                <td>38 cm</td>
+                <td>59 cm</td>
+            </tr>
+        </tbody>
+    </table>
+
+        </div>
+
+    </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ARCHIVE 003 PRODUCT PAGE -->
+
+<div id="archive-003-page">
+
+    <div class="archive-003-page-header">
+
+        <div class="archive-003-page-label">
+            OFF RECORD / ARCHIVE 003
+        </div>
+
+        <button
+            class="close-archive-003"
+            onclick="closeArchive003()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product">
+
+            <div class="main-image-area archive-003-image-area">
+
+                <img
+                    id="main-carhartt-jacket"
+                    src="carhartt-jacket.png"
+                    alt="Carhartt WIP Detroit Jacket">
+
+            </div>
+
+
+            <div class="color-options">
+
+                <img
+                    src="carhartt-jacket.png"
+                    alt="Brown"
+                    class="selected-color"
+                    onclick="changeCarhartt(
+                        'carhartt-jacket.png',
+                        'Brown',
+                        this
+                    )">
+
+                <img
+                    src="carhartt-jacket-black.png"
+                    alt="Black"
+                    onclick="changeCarhartt(
+                        'carhartt-jacket-black.png',
+                        'Black',
+                        this
+                    )">
+
+                <img
+                    src="carhartt-jacket-cream.png"
+                    alt="Cream"
+                    onclick="changeCarhartt(
+                        'carhartt-jacket-cream.png',
+                        'Cream',
+                        this
+                    )">
+
+                <img
+                    src="carhartt-jacket-purple.png"
+                    alt="Purple"
+                    onclick="changeCarhartt(
+                        'carhartt-jacket-purple.png',
+                        'Purple',
+                        this
+                    )">
+
+            </div>
+
+
+            <div class="archive-product-title">
+
+                <div class="product-archive-number">
+                    ARCHIVE 003
+                </div>
+
+                <div class="product-brand">
+                    CARHARTT WIP
+                </div>
+
+                <h2 id="carhartt-product-name">
+                    DETROIT JACKET (BROWN)
+                </h2>
+
+            </div>
+
+
+            <p class="product-price">
+               $75.00
+            </p>
+
+
+            <div class="size-section">
+
+                <h3>Select Size</h3>
+
+                <div class="size-options">
+
+                    <button
+                        onclick="selectCarharttSize('S', this)">
+                        S
+                    </button>
+
+                    <button
+                        onclick="selectCarharttSize('M', this)">
+                        M
+                    </button>
+
+                    <button
+                        onclick="selectCarharttSize('L', this)">
+                        L
+                    </button>
+
+                    <button
+                        onclick="selectCarharttSize('XL', this)">
+                        XL
+                    </button>
+
+                </div>
+
+                <p id="carhartt-selected-size">
+                    No size selected
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-cart-button"
+                onclick="addCarharttToCart()">
+                Add to Cart
+            </button>
+
+
+            <button
+                class="buy-now-button"
+                onclick="buyCarharttNow()">
+                Buy Now
+            </button>
+
+
+            <div class="archive-card">
+
+                <div class="archive-number">
+                    ARCHIVE NUMBER #003
+                </div>
+
+                <div class="archive-brand">
+                    CARHARTT WIP
+                </div>
+
+                <h3>
+                    DETROIT JACKET
+                </h3>
+
+                <div class="archive-category">
+                    OUTERWEAR / WORKWEAR / STREETWEAR
+                </div>
+
+                <div class="archive-divider"></div>
+
+                <div class="archive-section">
+
+                    <h4>
+                        WHY IT MADE THE ARCHIVE
+                    </h4>
+
+                    <p>
+                        THE MOST ICONIC JACKET SILOUETTE OF ALL TIME: THE EXAMPLE OF
+CLASSIC FUNTIONAL WORKWEAR BLENDED INTO TRUE STREETWEAR.
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section">
+
+                    <h4>
+                        THE DETAILS
+                    </h4>
+
+                    <p>
+                        <strong>BRAND</strong> — CARHARTT WIP
+                    </p>
+
+                    <p>
+                        <strong>MODEL</strong> — DETROIT JACKET
+                    </p>
+
+                    <p>
+                        <strong>CATEGORY</strong> — OUTERWEAR
+                    </p>
+
+                    <p>
+                        <strong>SILHOUETTE</strong> — JACKET
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section archive-note">
+
+                    <h4>
+                        ARCHIVE NOTE
+                    </h4>
+
+                    <p>
+                        ARCHIVE 003.
+                    </p>
+
+                </div>
+
+                       </div>
+
+            <div class="info-menu">
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Return Policy</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+
+                        <p>
+                            Customers must contact support (see "Contact" link in footer) and ship within 7 days of the package's arrival. See the shipping footer link for further details.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Size Guide</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+
+                    <table class="size-table">
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Length</th>
+                <th>Chest Circumfrence</th>
+                <th>Shoulder</th>
+                <th>Cuff Circumfrence</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>S</td>
+                <td>68 cm</td>
+                <td>126 cm</td>
+                <td>61.5 cm</td>
+                <td>27 cm</td>
+            </tr>
+
+            <tr>
+                <td>M</td>
+                <td>70 cm</td>
+                <td>130 cm</td>
+                <td>63 cm</td>
+                <td>28 cm</td>
+            </tr>
+
+            <tr>
+                <td>L</td>
+                <td>72 cm</td>
+                <td>134 cm</td>
+                <td>64.5 cm</td>
+                <td>29 cm</td>
+            </tr>
+
+            <tr>
+                <td>XL</td>
+                <td>74 cm</td>
+                <td>138 cm</td>
+                <td>66 cm</td>
+                <td>30 cm</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+      </div>
+
+</div>
+
+</div>
+
+<!-- ARCHIVE 004 PRODUCT PAGE -->
+
+<div id="archive-004-page">
+
+    <div class="archive-004-page-header">
+
+        <div class="archive-004-page-label">
+            OFF RECORD / ARCHIVE 004
+        </div>
+
+        <button
+            class="close-archive-004"
+            onclick="closeArchive004()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product">
+
+
+            <div class="main-image-area archive-004-image-area">
+
+                <img
+                    id="main-stussy-jacket"
+                    src="stussy.png"
+                    alt="Stüssy Jacket">
+
+            </div>
+
+
+            <div class="color-options">
+
+                <img
+                    src="stussy.png"
+                    alt="Black"
+                    class="selected-color">
+
+            </div>
+
+
+            <div class="archive-product-title">
+
+                <div class="product-archive-number">
+                    ARCHIVE 004
+                </div>
+
+                <div class="product-brand">
+                    STÜSSY
+                </div>
+
+                <h2 id="stussy-product-name">
+                    NIKE X STÜSSY — JACKET
+                </h2>
+
+            </div>
+
+
+            <p class="product-price">
+                $70.00
+            </p>
+
+
+            <div class="size-section">
+
+                <h3>Select Size</h3>
+
+                <div class="size-options">
+
+                    <button
+                        onclick="selectStussySize('S', this)">
+                        S
+                    </button>
+
+                    <button
+                        onclick="selectStussySize('M', this)">
+                        M
+                    </button>
+
+                    <button
+                        onclick="selectStussySize('L', this)">
+                        L
+                    </button>
+
+                    <button
+                        onclick="selectStussySize('XL', this)">
+                        XL
+                    </button>
+
+                </div>
+
+                <p id="stussy-selected-size">
+                    No size selected
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-cart-button"
+                onclick="addStussyToCart()">
+                Add to Cart
+            </button>
+
+
+            <button
+                class="buy-now-button"
+                onclick="buyStussyNow()">
+                Buy Now
+            </button>
+
+
+            <div class="archive-card">
+
+                <div class="archive-number">
+                    ARCHIVE NUMBER #004
+                </div>
+
+                <div class="archive-brand">
+                    STÜSSY
+                </div>
+
+                <h3>
+                    JACKET
+                </h3>
+
+                <div class="archive-category">
+                    OUTERWEAR / STREETWEAR
+                </div>
+
+                <div class="archive-divider"></div>
+
+
+                <div class="archive-section">
+
+                    <h4>
+                        WHY IT MADE THE ARCHIVE
+                    </h4>
+
+                    <p>
+                        STÜSSY SITS AT THE FOUNDATION OF MODERN STREETWEAR.
+                        THIS JACKET EARNS ITS PLACE THROUGH THE COMBINATION
+                        OF RECOGNIZABLE STÜSSY DNA, AN EASY STREETWEAR
+                        SILHOUETTE, AND ENOUGH CHARACTER TO STAND APART
+                        FROM ORDINARY OUTERWEAR.
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section">
+
+                    <h4>
+                        THE DETAILS
+                    </h4>
+
+                    <p>
+                        <strong>BRAND</strong> — STÜSSY
+                    </p>
+
+                    <p>
+                        <strong>PIECE</strong> — JACKET
+                    </p>
+
+                    <p>
+                        <strong>CATEGORY</strong> — OUTERWEAR
+                    </p>
+
+                    <p>
+                        <strong>CHARACTER</strong> — STREET / ICONIC / CASUAL
+                    </p>
+
+                    <p>
+                        <strong>ARCHIVE STATUS</strong> — SELECTED
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section archive-note">
+
+                    <h4>
+                        ARCHIVE NOTE
+                    </h4>
+
+                    <p>
+                        STREETWEAR HISTORY, STILL RELEVANT.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-menu">
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Return Policy</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+
+                        <p>
+                            Customers must contact support (see "Contact" link in footer) and ship within 7 days of the package's arrival. See the shipping footer link for further details.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Size Guide</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+ <table class="size-table">
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Length</th>
+                <th>Chest Circumfrence</th>
+                <th>Sleeve</th>
+                <th>Shoulder</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>S</td>
+                <td>68 cm</td>
+                <td>126 cm</td>
+                <td>61.5 cm</td>
+                <td>27 cm</td>
+            </tr>
+
+            <tr>
+                <td>M</td>
+                <td>70 cm</td>
+                <td>130 cm</td>
+                <td>63 cm</td>
+                <td>28 cm</td>
+            </tr>
+
+            <tr>
+                <td>L</td>
+                <td>72 cm</td>
+                <td>134 cm</td>
+                <td>64.5 cm</td>
+                <td>29 cm</td>
+            </tr>
+
+            <tr>
+                <td>XL</td>
+                <td>74 cm</td>
+                <td>138 cm</td>
+                <td>66 cm</td>
+                <td>30 cm</td>
+            </tr>
+
+        </tbody>
+    </table>
+                    </div>
+
+                </div>
+
+               </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ARCHIVE 005 PRODUCT PAGE -->
+<div id="archive-005-page">
+
+    <div class="archive-005-page-header">
+
+        <div class="archive-005-page-label">
+            OFF RECORD / ARCHIVE 005
+        </div>
+
+        <button
+            class="close-archive-005"
+            onclick="closeArchive005()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product">
+
+
+            <div class="main-image-area archive-005-image-area">
+
+                <img
+                    id="main-baggy-sweats"
+                    src="polo-sweats.png"
+                    alt="Polo Baggy Sweatpants">
+
+            </div>
+
+
+            <div class="color-options">
+
+                <img
+                    src="polo-sweats.png"
+                    alt="Grey"
+                    class="selected-color"
+                    onclick="changeBaggySweats(
+                        'polo-sweats.png',
+                        'Grey',
+                        this
+                    )">
+
+                <img
+                    src="polo-sweats-black.png"
+                    alt="Black"
+                    onclick="changeBaggySweats(
+                        'polo-sweats-black.png',
+                        'Black',
+                        this
+                    )">
+
+                <img
+                    src="polo-sweats-navy.png"
+                    alt="Navy"
+                    onclick="changeBaggySweats(
+                        'polo-sweats-navy.png',
+                        'Navy',
+                        this
+                    )">
+
+                <img
+                    src="polo-sweats-white.png"
+                    alt="White"
+                    onclick="changeBaggySweats(
+                        'polo-sweats-white.png',
+                        'White',
+                        this
+                    )">
+
+            </div>
+
+
+            <div class="archive-product-title">
+
+                <div class="product-archive-number">
+                    ARCHIVE 005
+                </div>
+
+                <div class="product-brand">
+                    POLO RALPH LAUREN
+                </div>
+
+                <h2 id="baggy-sweats-product-name">
+                    BAGGY SWEATPANTS (GREY)
+                </h2>
+
+            </div>
+
+
+            <p class="product-price">
+                $60.00
+            </p>
+
+
+            <div class="size-section">
+
+                <h3>Select Size</h3>
+
+                <div class="size-options">
+
+                    <button
+                        onclick="selectBaggySweatsSize('S', this)">
+                        S
+                    </button>
+
+                    <button
+                        onclick="selectBaggySweatsSize('M', this)">
+                        M
+                    </button>
+
+                    <button
+                        onclick="selectBaggySweatsSize('L', this)">
+                        L
+                    </button>
+
+                                       <button
+                        onclick="selectBaggySweatsSize('XL', this)">
+                        XL
+                    </button>
+
+                    <button
+                        onclick="selectBaggySweatsSize('XXL', this)">
+                        XXL
+                    </button>
+
+                </div>
+                <p id="baggy-sweats-selected-size">
+                    No size selected
+                </p>
+
+            </div>
+
+
+            <button
+                class="add-cart-button"
+                onclick="addBaggySweatsToCart()">
+                Add to Cart
+            </button>
+
+
+            <button
+                class="buy-now-button"
+                onclick="buyBaggySweatsNow()">
+                Buy Now
+            </button>
+
+
+            <div class="archive-card">
+
+                <div class="archive-number">
+                    ARCHIVE NUMBER #005
+                </div>
+
+                <div class="archive-brand">
+                    POLO RALPH LAUREN
+                </div>
+
+                <h3>
+                    BAGGY SWEATPANTS
+                </h3>
+
+                <div class="archive-category">
+                    BOTTOMS / STREETWEAR
+                </div>
+
+                <div class="archive-divider"></div>
+
+
+                <div class="archive-section">
+
+                    <h4>
+                        WHY IT MADE THE ARCHIVE
+                    </h4>
+
+                    <p>
+                        A FAMILIAR POLO IDENTITY PRESENTED THROUGH A MUCH
+                        MORE RELAXED SILHOUETTE. THE BAGGY SHAPE GIVES A
+                        CLASSIC AMERICAN BRAND A CURRENT STREETWEAR FEEL
+                        WITHOUT LOSING WHAT MAKES POLO RECOGNIZABLE.
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section">
+
+                    <h4>
+                        THE DETAILS
+                    </h4>
+
+                    <p>
+                        <strong>BRAND</strong> — POLO RALPH LAUREN
+                    </p>
+
+                    <p>
+                        <strong>PIECE</strong> — BAGGY SWEATPANTS
+                    </p>
+
+                    <p>
+                        <strong>CATEGORY</strong> — BOTTOMS
+                    </p>
+
+                    <p>
+                        <strong>CHARACTER</strong> — RELAXED / CLASSIC / STREET
+                    </p>
+
+                    <p>
+                        <strong>ARCHIVE STATUS</strong> — SELECTED
+                    </p>
+
+                </div>
+
+
+                <div class="archive-section archive-note">
+
+                    <h4>
+                        ARCHIVE NOTE
+                    </h4>
+
+                    <p>
+                        CLASSIC BRAND. DIFFERENT SILHOUETTE.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-menu">
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Return Policy</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+
+                        <p>
+                            Customers must contact support (see "Contact" link in footer) and ship within 7 days of the package's arrival. See the shipping footer link for further details.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-section">
+
+                    <button
+                        class="info-tab"
+                        onclick="toggleInfo(this)">
+
+                        <span>Size Guide</span>
+                        <span class="info-plus">+</span>
+
+                    </button>
+
+                    <div class="info-content">
+
+                     <table class="size-table">
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Recommended Height </th>
+                <th>Recommended Weight</th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>S</td>
+                <td>165 cm/5'5"</td>
+                <td>99-121 lb</td>
+            </tr>
+
+            <tr>
+                <td>M</td>
+                <td>170 cm/5'7"</td>
+                <td>121-143 lb</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>170 cm/5'9"</td>
+                <td>143-165 lb</td>
+            </tr>
+
+            <tr>
+                <td>XL</td>
+                <td>180 cm/5'11"</td>
+                <td>165-187 lb</td>
+            </tr>
+
+            <tr>
+                <td>XXL</td>
+                <td>185 cm/6'1"</td>
+                <td>187-209 lb</td>
+            </tr>
+        </tbody>
+    </table>
+                    </div>
+
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<header class="site-header">
+</div>
+
+<header class="site-header">
+    <button class="header-shop" onclick="toggleShop()">
+    Shop
+</button>
+
+    <div class="header-logo">
+        <div>OFF RECORD</div>
+        <div>ARCHIVE</div>
+    </div>
+
+    <button class="header-cart" onclick="toggleCart()">
+        🛒 <span class="cart-label">Cart</span>
+        <span id="cart-count">0</span>
+    </button>
+
+</header>
+   </header>
+
+<section class="archive-intro">
+
+    <div class="archive-intro-eyebrow">
+        OFF RECORD / THE ARCHIVE
+    </div>
+
+    <h2>
+        NOT EVERYTHING MAKES THE CUT.
+    </h2>
+
+    <p class="archive-intro-text">
+        OFF RECORD ARCHIVE IS A CURATED SELECTION OF STREETWEAR CLOTHING
+         CHOSEN FOR ITS CHARACTER, SILHOUETTE,
+        AND RELEVANCE.
+    </p>
+
+    <div class="archive-intro-note">
+        SELECTED PIECES. CURRENT RELEVANCE.
+    </div>
+
+</section>
+
+<div class="products">
+
+    <div class="product">
+
+        <!-- Main jacket image -->
+        <div class="main-image-area">
+    <img id="main-jacket" src="jacket.png" alt="1996 Retro Nuptse Jacket">
+</div>
+
+        <!-- Color options -->
+        <div class="color-options">
+
+            <img src="jacket.png"
+     alt="Black"
+     class="selected-color"
+     onclick="changeJacket('jacket.png', 'Black')">
+
+            <img src="jacket-white.png"
+                 alt="White"
+                 onclick="changeJacket('jacket-white.png', 'White')">
+
+            <img src="jacket-purple.png"
+                 alt="Purple"
+                 onclick="changeJacket('jacket-purple.png', 'Purple')">
+
+            <img src="jacket-green.png"
+                 alt="Green"
+                 onclick="changeJacket('jacket-green.png', 'Green')">
+
+        </div>
+
+       <div class="archive-product-title">
+
+    <div class="product-archive-number">
+        ARCHIVE 001
+    </div>
+
+    <div class="product-brand">
+        NORTH FACE
+    </div>
+
+    <h2 id="product-name">
+        1996 RETRO NUPTSE
+    </h2>
+
+</div>
+
+        <p class="product-price">$90.00</p>
+
+<div class="size-section">
+
+    <h3>Select Size</h3>
+
+    <div class="size-options">
+    <button id="size-S" onclick="selectSize('S')">S</button>
+    <button id="size-M" onclick="selectSize('M')">M</button>
+    <button id="size-L" onclick="selectSize('L')">L</button>
+    <button id="size-XL" onclick="selectSize('XL')">XL</button>
+    <button id="size-XXL" onclick="selectSize('XXL')">XXL</button>
+</div>
+
+    <p id="selected-size">No size selected</p>
+
+</div>
+<button class="add-cart-button" onclick="addToCart()">
+    Add to Cart
+</button>
+
+<button class="buy-now-button" onclick="buyNow()">
+    Buy Now
+</button>
+
+<div class="archive-card">
+
+    <div class="archive-number">
+        ARCHIVE NUMBER #001
+    </div>
+
+    <div class="archive-brand">
+        NORTH FACE
+    </div>
+
+    <h3>
+        1996 RETRO NUPTSE
+    </h3>
+
+    <div class="archive-category">
+        OUTERWEAR / STREETWEAR
+    </div>
+
+    <div class="archive-divider"></div>
+
+    <div class="archive-section">
+
+        <h4>
+            WHY IT MADE THE ARCHIVE
+        </h4>
+
+        <p>
+ONE OF THE DEFINING PUFFER SILHOUETTES OF MODERN STREETWEAR: 
+ITS INSTANTLY RECOGNIZABLE PROFILE MAKE IT THE JACKET OF CHOICE FOR TRUE STREETWEAR
+        </p>
+
+    </div>
+
+    <div class="archive-section">
+
+        <h4>
+            THE DETAILS
+        </h4>
+
+        <p>
+            <strong>BRAND</strong> — NORTH FACE
+        </p>
+
+        <p>
+            <strong>MODEL</strong> — 1996 RETRO NUPTSE
+        </p>
+
+        <p>
+            <strong>CATEGORY</strong> — OUTERWEAR
+        </p>
+
+        <p>
+            <strong>SILHOUETTE</strong> — BOXY / OVERSIZED
+        </p>
+
+    </div>
+
+    <div class="archive-section archive-note">
+
+        <h4>
+            ARCHIVE NOTE
+        </h4>
+
+        <p>
+            A SILHOUETTE THAT SPEAKS FOR ITSELF 
+        </p>
+
+    </div>
+
+</div>
+
+<div class="info-menu">
+    <div class="info-section">
+        <button class="info-tab" onclick="toggleInfo(this)">
+            <span>Return Policy</span>
+            <span class="info-plus">+</span>
+        </button>
+
+        <div class="info-content">
+            <p>
+                Customers must contact support (see "Contact" link in footer) and ship within 7 days of the package's arrival. See the shipping footer link for further details.
+            </p>
+        </div>
+    </div>
+
+    <div class="info-section">
+        <button class="info-tab" onclick="toggleInfo(this)">
+            <span>Size Guide</span>
+            <span class="info-plus">+</span>
+        </button>
+
+       <div class="info-content">
+
+    <table class="size-table">
+        <thead>
+            <tr>
+                <th>Size</th>
+                <th>Length</th>
+                <th>Chest Circumfrence</th>
+                <th>Shoulder</th>
+                <th>Sleeve</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>S</td>
+                <td>67 cm</td>
+                <td>108 cm</td>
+                <td>51 cm</td>
+                <td>67 cm</td>
+            </tr>
+
+            <tr>
+                <td>M</td>
+                <td>69 cm</td>
+                <td>114 cm</td>
+                <td>52 cm</td>
+                <td>69 cm</td>
+            </tr>
+
+            <tr>
+                <td>L</td>
+                <td>71 cm</td>
+                <td>120 cm</td>
+                <td>53 cm</td>
+                <td>71 cm</td>
+            </tr>
+
+            <tr>
+                <td>XL</td>
+                <td>73 cm</td>
+                <td>126 cm</td>
+                <td>54 cm</td>
+                <td>73 cm</td>
+            </tr>
+
+            <tr>
+                <td>XXL</td>
+                <td>75 cm</td>
+                <td>132 cm</td>
+                <td>55 cm</td>
+                <td>75 cm</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+    </div>
+
+   
+</p>
+        
+</div>
+
+</div>
+    </div>
+
+</div>
+
+
+
+<script>
+function openOrders() {
+    const shop = document.getElementById("shop");
+
+    shop.classList.remove("open");
+
+    document.getElementById("orders-page").style.display = "block";
+
+    displayOrders();
+}
+
+function closeOrders() {
+    document.getElementById("orders-page").style.display = "none";
+}
+function displayOrders() {
+
+    const ordersList = document.getElementById("orders-list");
+
+    ordersList.innerHTML = "";
+
+    if (orders.length === 0) {
+        ordersList.innerHTML = `
+            <p class="empty-orders">
+                You have no orders yet.
+            </p>
+        `;
+        return;
+    }
+
+    orders.slice().reverse().forEach(function(order) {
+
+        const orderCard = document.createElement("div");
+
+        orderCard.className = "order-card";
+
+        let itemsHTML = "";
+
+        order.items.forEach(function(item) {
+
+            const itemTotal =
+                item.price * item.quantity;
+
+            itemsHTML += `
+                <div class="order-item">
+                    <span>
+                        ${item.name}<br>
+                        ${item.color} · Size ${item.size} ·
+                        Qty ${item.quantity}
+                    </span>
+
+                    <strong>
+                        $${itemTotal.toFixed(2)}
+                    </strong>
+                </div>
+            `;
+        });
+
+        orderCard.innerHTML = `
+            <div class="order-card-header">
+
+                <strong>
+                    ${order.orderNumber}
+                </strong>
+
+                <span class="order-card-date">
+                    ${order.date}
+                </span>
+
+            </div>
+
+            ${itemsHTML}
+
+            <div class="order-card-total">
+
+                <strong>Subtotal</strong>
+                <span>$${order.subtotal.toFixed(2)}</span>
+
+            </div>
+
+            <div class="order-card-total">
+
+                <strong>Shipping</strong>
+                <span>$${order.shipping.toFixed(2)}</span>
+
+            </div>
+
+            <div class="order-card-total">
+
+                <strong>Total</strong>
+                <strong>$${order.total.toFixed(2)}</strong>
+
+            </div>
+        `;
+
+        ordersList.appendChild(orderCard);
+    });
+}
+function toggleShop() {
+    const shop = document.getElementById("shop");
+
+    shop.classList.toggle("open");
+}
+function closeArchive002() {
+    document.getElementById("archive-002-page").classList.remove("open");
+}
+function goToArchive002() {
+    const shop = document.getElementById("shop");
+
+    shop.classList.remove("open");
+
+    document.getElementById("archive-002-page").classList.add("open");
+}
+function closeArchive003() {
+    document.getElementById("archive-003-page").classList.remove("open");
+}
+
+function goToArchive003() {
+    const shop = document.getElementById("shop");
+
+    shop.classList.remove("open");
+
+    document.getElementById("archive-003-page").classList.add("open");
+}
+let selectedColor = "Black";
+let selectedSize = null;
+let selectedImage = "jacket.png";
+let poloSelectedColor = "Black";
+let poloSelectedSize = null;
+let poloSelectedImage = "polo-bear-black.png";
+
+function changePoloBear(image, color, clickedImage) {
+
+    document.getElementById("main-polo-bear").src = image;
+
+    poloSelectedColor = color;
+    poloSelectedImage = image;
+document.getElementById("polo-product-name").textContent =
+    "POLO BEAR KNIT (" + color.toUpperCase() + ")";
+
+    const colorImages =
+        document.querySelectorAll("#archive-002-page .color-options img");
+
+    colorImages.forEach(function(img) {
+        img.classList.remove("selected-color");
+    });
+
+    clickedImage.classList.add("selected-color");
+}
+function selectPoloSize(size, clickedButton) {
+
+    const buttons =
+        document.querySelectorAll("#archive-002-page .size-options button");
+
+    buttons.forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    clickedButton.classList.add("selected");
+
+    poloSelectedSize = size;
+
+    document.getElementById("polo-selected-size").textContent =
+        "Selected size: " + size;
+}
+function addPoloBearToCart() {
+
+    if (poloSelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+        return item.name === "Polo Bear Knit Sweater" &&
+               item.color === poloSelectedColor &&
+               item.size === poloSelectedSize;
+    });
+
+    if (existingItem) {
+        existingItem.quantity++;
+    } else {
+        const product = {
+            name: "Polo Bear Knit Sweater",
+            color: poloSelectedColor,
+            size: poloSelectedSize,
+            image: poloSelectedImage,
+            price: 65,
+            quantity: 1
+        };
+
+        cart.push(product);
+    }
+
+    updateCart();
+
+    alert("Polo Bear Knit added to cart.");
+}
+
+function buyPoloBearNow() {
+
+    if (poloSelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+        return item.name === "Polo Bear Knit Sweater" &&
+               item.color === poloSelectedColor &&
+               item.size === poloSelectedSize;
+    });
+
+    if (!existingItem) {
+        const product = {
+            name: "Polo Bear Knit Sweater",
+            color: poloSelectedColor,
+            size: poloSelectedSize,
+            image: poloSelectedImage,
+            price: 65,
+            quantity: 1
+        };
+
+        cart.push(product);
+    }
+
+    updateCart();
+closeArchive002();
+openCheckout();
+}
+/* =========================
+   ARCHIVE 003 — CARHARTT
+   ========================= */
+
+let carharttSelectedColor = "Brown";
+let carharttSelectedSize = null;
+let carharttSelectedImage = "carhartt-jacket.png";
+
+/* CHANGE CARHARTT COLOR */
+
+function changeCarhartt(image, color, clickedImage) {
+
+    document.getElementById("main-carhartt-jacket").src = image;
+
+    carharttSelectedColor = color;
+    carharttSelectedImage = image;
+
+    document.getElementById("carhartt-product-name").textContent =
+        "DETROIT JACKET (" + color.toUpperCase() + ")";
+
+    const colorImages =
+        document.querySelectorAll(
+            "#archive-003-page .color-options img"
+        );
+
+    colorImages.forEach(function(img) {
+        img.classList.remove("selected-color");
+    });
+
+    clickedImage.classList.add("selected-color");
+}
+
+
+/* SELECT CARHARTT SIZE */
+
+function selectCarharttSize(size, clickedButton) {
+
+    const buttons =
+        document.querySelectorAll(
+            "#archive-003-page .size-options button"
+        );
+
+    buttons.forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    clickedButton.classList.add("selected");
+
+    carharttSelectedSize = size;
+
+    document.getElementById("carhartt-selected-size").textContent =
+        "Selected size: " + size;
+}
+
+
+/* ADD CARHARTT TO CART */
+
+function addCarharttToCart() {
+
+    if (carharttSelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+        return item.name === "Carhartt WIP Detroit Jacket" &&
+               item.color === carharttSelectedColor &&
+               item.size === carharttSelectedSize;
+    });
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        const product = {
+
+            name: "Carhartt WIP Detroit Jacket",
+
+            color: carharttSelectedColor,
+
+            size: carharttSelectedSize,
+
+            image: carharttSelectedImage,
+
+            price: 75,
+
+            quantity: 1
+        };
+
+        cart.push(product);
+    }
+
+    updateCart();
+
+    alert("Carhartt WIP Detroit Jacket added to cart.");
+}
+
+
+/* BUY CARHARTT NOW */
+
+function buyCarharttNow() {
+
+    if (carharttSelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+        return item.name === "Carhartt WIP Detroit Jacket" &&
+               item.color === carharttSelectedColor &&
+               item.size === carharttSelectedSize;
+    });
+
+    if (!existingItem) {
+
+        const product = {
+
+            name: "Carhartt WIP Detroit Jacket",
+
+            color: carharttSelectedColor,
+
+            size: carharttSelectedSize,
+
+            image: carharttSelectedImage,
+
+            price: 75,
+
+            quantity: 1
+        };
+
+        cart.push(product);
+    }
+
+    updateCart();
+
+    closeArchive003();
+
+    openCheckout();
+}
+/* =========================
+   ARCHIVE 004 — STÜSSY
+   ========================= */
+
+let stussySelectedSize = null;
+let stussySelectedImage = "stussy.png";
+
+
+function closeArchive004() {
+
+    document.getElementById("archive-004-page").classList.remove("open");
+
+}
+
+
+function goToArchive004() {
+
+    const shop = document.getElementById("shop");
+
+    shop.classList.remove("open");
+
+    document.getElementById("archive-004-page").classList.add("open");
+
+}
+
+
+/* SELECT STÜSSY SIZE */
+
+function selectStussySize(size, clickedButton) {
+
+    const buttons =
+        document.querySelectorAll(
+            "#archive-004-page .size-options button"
+        );
+
+    buttons.forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    clickedButton.classList.add("selected");
+
+    stussySelectedSize = size;
+
+    document.getElementById("stussy-selected-size").textContent =
+        "Selected size: " + size;
+}
+
+
+/* ADD STÜSSY TO CART */
+
+function addStussyToCart() {
+
+    if (stussySelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+
+        return item.name === "Stüssy Jacket" &&
+               item.size === stussySelectedSize;
+
+    });
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        const product = {
+
+            name: "Stüssy Jacket",
+
+            color: "Black",
+
+            size: stussySelectedSize,
+
+            image: stussySelectedImage,
+
+            price: 70,
+
+            quantity: 1
+
+        };
+
+        cart.push(product);
+
+    }
+
+    updateCart();
+
+    alert("Stüssy Jacket added to cart.");
+}
+
+
+/* BUY STÜSSY NOW */
+
+function buyStussyNow() {
+
+    if (stussySelectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+
+        return item.name === "Stüssy Jacket" &&
+               item.size === stussySelectedSize;
+
+    });
+
+    if (!existingItem) {
+
+        const product = {
+
+            name: "Stüssy Jacket",
+
+            color: "Black",
+
+            size: stussySelectedSize,
+
+            image: stussySelectedImage,
+
+            price: 70,
+
+            quantity: 1
+
+        };
+
+        cart.push(product);
+
+    }
+
+    updateCart();
+
+    closeArchive004();
+
+    openCheckout();
+
+}
+/* =========================
+   ARCHIVE 005 — BAGGY SWEATPANTS
+   ========================= */
+
+let baggySweatsSelectedColor = "Grey";
+let baggySweatsSelectedSize = null;
+let baggySweatsSelectedImage = "polo-sweats.png";
+
+
+function closeArchive005() {
+
+    document.getElementById("archive-005-page").classList.remove("open");
+
+}
+
+
+function goToArchive005() {
+
+    const shop = document.getElementById("shop");
+
+    shop.classList.remove("open");
+
+    document.getElementById("archive-005-page").classList.add("open");
+
+}
+
+
+/* CHANGE BAGGY SWEATPANTS COLOR */
+
+function changeBaggySweats(image, color, clickedImage) {
+
+    document.getElementById("main-baggy-sweats").src = image;
+
+    baggySweatsSelectedColor = color;
+    baggySweatsSelectedImage = image;
+
+    document.getElementById("baggy-sweats-product-name").textContent =
+        "BAGGY SWEATPANTS (" + color.toUpperCase() + ")";
+
+    const colorImages =
+        document.querySelectorAll(
+            "#archive-005-page .color-options img"
+        );
+
+    colorImages.forEach(function(img) {
+        img.classList.remove("selected-color");
+    });
+
+    clickedImage.classList.add("selected-color");
+}
+
+
+/* SELECT SIZE */
+
+function selectBaggySweatsSize(size, clickedButton) {
+
+    const buttons =
+        document.querySelectorAll(
+            "#archive-005-page .size-options button"
+        );
+
+    buttons.forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    clickedButton.classList.add("selected");
+
+    baggySweatsSelectedSize = size;
+
+    document.getElementById("baggy-sweats-selected-size").textContent =
+        "Selected size: " + size;
+}
+
+
+/* ADD TO CART */
+
+function addBaggySweatsToCart() {
+
+    if (baggySweatsSelectedSize === null) {
+
+        alert("Please select a size first.");
+
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+
+        return item.name === "Polo Ralph Lauren Baggy Sweatpants" &&
+               item.color === baggySweatsSelectedColor &&
+               item.size === baggySweatsSelectedSize;
+
+    });
+
+    if (existingItem) {
+
+        existingItem.quantity++;
+
+    } else {
+
+        const product = {
+
+            name: "Polo Ralph Lauren Baggy Sweatpants",
+
+            color: baggySweatsSelectedColor,
+
+            size: baggySweatsSelectedSize,
+
+            image: baggySweatsSelectedImage,
+
+            price: 50,
+
+            quantity: 1
+
+        };
+
+        cart.push(product);
+
+    }
+
+    updateCart();
+
+    alert("Polo Ralph Lauren Baggy Sweatpants added to cart.");
+}
+
+
+/* BUY NOW */
+
+function buyBaggySweatsNow() {
+
+    if (baggySweatsSelectedSize === null) {
+
+        alert("Please select a size first.");
+
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+
+        return item.name === "Polo Ralph Lauren Baggy Sweatpants" &&
+               item.color === baggySweatsSelectedColor &&
+               item.size === baggySweatsSelectedSize;
+
+    });
+
+    if (!existingItem) {
+
+        const product = {
+
+            name: "Polo Ralph Lauren Baggy Sweatpants",
+
+            color: baggySweatsSelectedColor,
+
+            size: baggySweatsSelectedSize,
+
+            image: baggySweatsSelectedImage,
+
+            price: 50,
+
+            quantity: 1
+
+        };
+
+        cart.push(product);
+
+    }
+
+    updateCart();
+
+    closeArchive005();
+
+    openCheckout();
+
+}
+let cart = JSON.parse(localStorage.getItem("offrecordCart")) || [];
+let orders = JSON.parse(localStorage.getItem("offrecordOrders")) || [];
+
+let inventory = JSON.parse(localStorage.getItem("offrecordInventory")) || {
+    S: 9999999999999,
+    M: 9999999999999,
+    L: 9999999999999,
+    XL: 999999999999,
+    XXL: 99999999999
+};
+   function changeJacket(image, color) {
+
+    document.getElementById("main-jacket").src = image;
+
+   document.getElementById("product-name").textContent =
+    "1996 RETRO NUPTSE (" + color.toUpperCase() + ")";
+
+    selectedColor = color;
+    selectedImage = image;
+
+    const colorImages = document.querySelectorAll(".color-options img");
+
+    colorImages.forEach(function(img) {
+        img.classList.remove("selected-color");
+    });
+
+    event.target.classList.add("selected-color");
+}
+function updateInventoryDisplay() {
+    const sizes = ["S", "M", "L", "XL", "XXL"];
+
+    sizes.forEach(function(size) {
+        const button = document.getElementById("size-" + size);
+
+        if (inventory[size] <= 0) {
+            button.disabled = true;
+            button.textContent = "Sold out";
+            button.classList.remove("selected");
+        } else {
+            button.disabled = false;
+            button.textContent = size;
+        }
+    });
+}
+    function selectSize(size) {
+    if (inventory[size] <= 0) {
+        return;
+    }
+
+    const buttons = document.querySelectorAll(".size-options button");
+
+    buttons.forEach(function(button) {
+        button.classList.remove("selected");
+    });
+
+    event.target.classList.add("selected");
+
+    selectedSize = size;
+
+    document.getElementById("selected-size").textContent =
+        "Selected size: " + size;
+}
+
+
+   function addToCart() {
+
+    if (selectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+if (inventory[selectedSize] <= 0) {
+    alert("Sorry, this size is sold out.");
+    return;
+}
+    // Check if this exact color and size are already in the cart
+    const existingItem = cart.find(function(item) {
+        return item.color === selectedColor &&
+               item.size === selectedSize;
+    });
+
+    if (existingItem) {
+
+    if (inventory[selectedSize] <= 0) {
+        alert("Sorry, this size is sold out.");
+        return;
+    }
+
+    existingItem.quantity++;
+    inventory[selectedSize]--;
+
+} else {
+
+    const product = {
+        name: "1996 Retro Nuptse Jacket",
+        color: selectedColor,
+        size: selectedSize,
+        image: selectedImage,
+        price: 90,
+        quantity: 1
+    };
+
+    cart.push(product);
+    inventory[selectedSize]--;
+}
+inventory[selectedSize]--;
+updateInventoryDisplay();
+updateCart();
+}
+function buyNow() {
+    if (selectedSize === null) {
+        alert("Please select a size first.");
+        return;
+    }
+
+    if (inventory[selectedSize] <= 0) {
+        alert("Sorry, this size is sold out.");
+        return;
+    }
+
+    const existingItem = cart.find(function(item) {
+        return item.color === selectedColor &&
+               item.size === selectedSize;
+    });
+
+    if (!existingItem) {
+        const product = {
+            name: "1996 Retro Nuptse Jacket",
+            color: selectedColor,
+            size: selectedSize,
+            image: selectedImage,
+            price: 90,
+            quantity: 1
+        };
+
+        cart.push(product);
+
+        inventory[selectedSize]--;
+
+        updateInventoryDisplay();
+        updateCart();
+    }
+
+    openCheckout();
+}
+function toggleInfo(button) {
+    const content = button.nextElementSibling;
+
+    button.classList.toggle("open");
+    content.classList.toggle("open");
+
+    if (content.classList.contains("open")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+        content.style.maxHeight = "0";
+    }
+}
+function updateCart() {
+
+localStorage.setItem("offrecordCart", JSON.stringify(cart));
+    
+const cartItems = document.getElementById("cart-items");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach(function(item, index) {
+
+        const itemTotal = item.price * item.quantity;
+
+        total += itemTotal;
+
+        const itemElement = document.createElement("div");
+
+        itemElement.className = "cart-item";
+
+        itemElement.innerHTML = `
+
+            <img class="cart-item-image"
+                 src="${item.image}"
+                 alt="${item.color} 1996 Retro Nuptse Jacket">
+
+            <div class="cart-item-details">
+
+                <strong>${item.name}</strong>
+
+                <p>${item.color} · Size ${item.size}</p>
+
+                <div class="quantity-controls">
+
+                    <button onclick="changeQuantity(${index}, -1)">
+                        −
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="changeQuantity(${index}, 1)">
+                        +
+                    </button>
+
+                </div>
+
+                <p>$${itemTotal.toFixed(2)}</p>
+
+                <button onclick="removeFromCart(${index})">
+                    Remove
+                </button>
+
+            </div>
+
+        `;
+
+        cartItems.appendChild(itemElement);
+
+    });
+
+    document.getElementById("cart-total").textContent =
+        "Total: $" + total.toFixed(2);
+
+    document.getElementById("cart-count").textContent =
+        cart.reduce(function(total, item) {
+            return total + item.quantity;
+        }, 0);
+}
+function changeQuantity(index, change) {
+
+    const item = cart[index];
+
+    const isNuptse =
+        item.name === "1996 Retro Nuptse Jacket";
+
+    if (change > 0) {
+
+        if (isNuptse && inventory[item.size] <= 0) {
+            alert("Sorry, no more of this size is available.");
+            return;
+        }
+
+        item.quantity++;
+
+        if (isNuptse) {
+            inventory[item.size]--;
+        }
+    }
+
+    if (change < 0) {
+
+        item.quantity--;
+
+        if (isNuptse) {
+            inventory[item.size]++;
+        }
+    }
+
+    if (item.quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    if (isNuptse) {
+        updateInventoryDisplay();
+    }
+
+    updateCart();
+}
+function removeFromCart(index) {
+
+    const item = cart[index];
+
+    if (!item) {
+        return;
+    }
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+function toggleCart() {
+
+    const cart = document.getElementById("cart");
+
+    cart.classList.toggle("open");
+
+    document.body.classList.toggle("cart-open");
+
+}
+function openCheckout() {
+
+    if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    document.getElementById("cart").classList.remove("open");
+
+    document.body.classList.remove("cart-open");
+
+    document.getElementById("checkout").style.display = "block";
+
+    // Always start checkout at the checkout form
+    document.getElementById("checkout-form").style.display = "block";
+    document.getElementById("order-review").style.display = "none";
+    document.getElementById("payment-screen").style.display = "none";
+    document.getElementById("confirmation-screen").style.display = "none";
+
+    updateCheckout();
+
+}
+
+function closeCheckout() {
+
+    document.getElementById("checkout").style.display = "none";
+
+}
+function validateCheckout() {
+
+    const email =
+        document.getElementById("checkout-email");
+
+const phone =
+    document.getElementById("checkout-phone");
+
+    const name =
+        document.getElementById("checkout-name");
+
+    const address =
+        document.getElementById("checkout-address");
+
+    const city =
+        document.getElementById("checkout-city");
+
+    const zip =
+        document.getElementById("checkout-zip");
+
+if (email.value.trim() === "") {
+    alert("Please enter your email.");
+    email.focus();
+    return;
+}
+
+if (!email.value.includes("@") || !email.value.includes(".")) {
+    alert("Please enter a valid email address.");
+    email.focus();
+    return;
+}
+
+    if (name.value.trim() === "") {
+        alert("Please enter your full name.");
+        name.focus();
+        return;
+    }
+
+
+    if (address.value.trim() === "") {
+        alert("Please enter your address.");
+        address.focus();
+        return;
+    }
+
+
+    if (city.value.trim() === "") {
+        alert("Please enter your city.");
+        city.focus();
+        return;
+    }
+if (zip.value.trim() === "") {
+    alert("Please enter your ZIP code.");
+    zip.focus();
+    return;
+}
+
+if (!/^\d{5}$/.test(zip.value.trim())) {
+    alert("Please enter a valid 5-digit ZIP code.");
+    zip.focus();
+    return;
+}
+if (phone.value.trim() === "") {
+    alert("Please enter your phone number.");
+    phone.focus();
+    return;
+}
+
+const phoneDigits =
+    phone.value.replace(/\D/g, "");
+
+if (phoneDigits.length !== 10) {
+    alert("Please enter a valid 10-digit phone number.");
+    phone.focus();
+    return;
+}
+    showOrderReview();
+
+}
+function backToCheckout() {
+
+    document.getElementById("order-review").style.display = "none";
+    document.getElementById("checkout-form").style.display = "block";
+
+}
+
+function showOrderReview() {
+    const email =
+    document.getElementById("checkout-email").value.trim();
+
+const phone =
+    document.getElementById("checkout-phone").value.trim();
+
+const name =
+    document.getElementById("checkout-name").value.trim();
+    const address =
+        document.getElementById("checkout-address").value.trim();
+
+    const city =
+        document.getElementById("checkout-city").value.trim();
+
+    const zip =
+        document.getElementById("checkout-zip").value.trim();
+
+
+    document.getElementById("checkout-form").style.display = "none";
+
+    document.getElementById("order-review").style.display = "block";
+
+
+   document.getElementById("review-email").textContent =
+    email;
+
+document.getElementById("review-phone").textContent =
+    phone;
+
+document.getElementById("review-name").textContent =
+    name;
+
+    document.getElementById("review-address").textContent =
+        address;
+
+    document.getElementById("review-city").textContent =
+        city;
+
+    document.getElementById("review-zip").textContent =
+        zip;
+
+
+    const reviewItems =
+        document.getElementById("review-items");
+
+    reviewItems.innerHTML = "";
+
+
+    cart.forEach(function(item) {
+
+        const itemElement =
+            document.createElement("div");
+
+        itemElement.className =
+            "review-item";
+
+        itemElement.innerHTML = `
+
+            <div>
+                <strong>${item.name}</strong>
+
+                <p>
+                    ${item.color} ·
+                    Size ${item.size} ·
+                    Quantity ${item.quantity}
+                </p>
+            </div>
+
+            <strong>
+                $${(item.price * item.quantity).toFixed(2)}
+            </strong>
+
+        `;
+
+        reviewItems.appendChild(itemElement);
+
+    });
+
+
+    const subtotal =
+        cart.reduce(function(total, item) {
+            return total + (item.price * item.quantity);
+        }, 0);
+
+
+    const shipping =
+        Number(document.getElementById("shipping").value);
+
+
+    const total =
+        subtotal + shipping;
+
+
+    document.getElementById("review-subtotal").textContent =
+        "$" + subtotal.toFixed(2);
+
+    document.getElementById("review-shipping").textContent =
+        "$" + shipping.toFixed(2);
+
+    document.getElementById("review-total").textContent =
+        "$" + total.toFixed(2);
+
+}
+function updateCheckout() {
+
+    const checkoutItems =
+        document.getElementById("checkout-items");
+
+    checkoutItems.innerHTML = "";
+
+    let subtotal = 0;
+
+    cart.forEach(function(item) {
+
+        const itemTotal = item.price * item.quantity;
+
+        subtotal += itemTotal;
+
+        const itemElement = document.createElement("p");
+
+        itemElement.textContent =
+            item.name +
+            " — " +
+            item.color +
+            " · " +
+            item.size +
+            " × " +
+            item.quantity +
+            " — $" +
+            itemTotal.toFixed(2);
+
+        checkoutItems.appendChild(itemElement);
+
+    });
+
+
+    const shipping =
+        Number(document.getElementById("shipping").value);
+
+
+    const total = subtotal + shipping;
+
+
+    document.getElementById("checkout-subtotal").textContent =
+        "$" + subtotal.toFixed(2);
+
+
+    document.getElementById("checkout-shipping").textContent =
+        "$" + shipping.toFixed(2);
+
+
+    document.getElementById("checkout-total").textContent =
+        "$" + total.toFixed(2);
+
+}
+function openPayment() {
+
+    document.getElementById("checkout-form").style.display = "none";
+    document.getElementById("order-review").style.display = "none";
+    document.getElementById("payment-screen").style.display = "block";
+    document.getElementById("confirmation-screen").style.display = "none";
+
+}
+function backToReview() {
+
+    document.getElementById("payment-screen").style.display = "none";
+    document.getElementById("order-review").style.display = "block";
+
+}
+function placeTestOrder() {
+
+    const cardNumber =
+        document.getElementById("card-number").value.trim();
+
+    const cardExpiry =
+        document.getElementById("card-expiry").value.trim();
+
+    const cardCvc =
+        document.getElementById("card-cvc").value.trim();
+
+    // Basic demo validation
+    if (cardNumber === "") {
+        alert("Please enter a test card number.");
+        document.getElementById("card-number").focus();
+        return;
+    }
+
+    if (cardExpiry === "") {
+        alert("Please enter an expiration date.");
+        document.getElementById("card-expiry").focus();
+        return;
+    }
+
+    if (cardCvc === "") {
+        alert("Please enter a CVC.");
+        document.getElementById("card-cvc").focus();
+        return;
+    }
+
+    // Generate test order number
+    const orderNumber =
+        "NG-" + Math.floor(100000 + Math.random() * 900000);
+
+const subtotal =
+    cart.reduce(function(total, item) {
+        return total + (item.price * item.quantity);
+    }, 0);
+
+const shipping =
+    Number(document.getElementById("shipping").value);
+
+const total =
+    subtotal + shipping;
+
+const order = {
+    orderNumber: orderNumber,
+    date: new Date().toLocaleString(),
+    items: JSON.parse(JSON.stringify(cart)),
+    subtotal: subtotal,
+    shipping: shipping,
+    total: total
+};
+
+orders.push(order);
+
+localStorage.setItem(
+    "offrecordOrders",
+    JSON.stringify(orders)
+);
+    // Show confirmation
+    document.getElementById("payment-screen").style.display = "none";
+    document.getElementById("confirmation-screen").style.display = "block";
+
+    document.getElementById("order-number").textContent =
+        orderNumber;
+
+    // Empty cart
+    cart = [];
+
+    updateCart();
+}
+function finishCheckout() {
+
+    // Close checkout
+    document.getElementById("checkout").style.display = "none";
+
+    // Reset checkout screens
+    document.getElementById("checkout-form").style.display = "block";
+    document.getElementById("order-review").style.display = "none";
+    document.getElementById("payment-screen").style.display = "none";
+    document.getElementById("confirmation-screen").style.display = "none";
+
+    // Clear checkout form
+    document.getElementById("checkout-email").value = "";
+document.getElementById("checkout-phone").value = "";
+document.getElementById("checkout-name").value = "";
+    document.getElementById("checkout-address").value = "";
+    document.getElementById("checkout-city").value = "";
+    document.getElementById("checkout-zip").value = "";
+
+    // Reset shipping
+    document.getElementById("shipping").value = "10";
+
+    // Clear review information
+document.getElementById("review-email").textContent = "";
+document.getElementById("review-phone").textContent = "";
+document.getElementById("review-name").textContent = "";
+    document.getElementById("review-address").textContent = "";
+    document.getElementById("review-city").textContent = "";
+    document.getElementById("review-zip").textContent = "";
+
+    // Clear review items
+    document.getElementById("review-items").innerHTML = "";
+
+    // Reset totals
+    document.getElementById("review-subtotal").textContent = "$0.00";
+    document.getElementById("review-shipping").textContent = "$0.00";
+    document.getElementById("review-total").textContent = "$0.00";
+
+    // Clear payment fields
+    document.querySelectorAll(".payment-input").forEach(function(input) {
+        input.value = "";
+    });
+
+}
+</script>
+<div id="cart">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button class="close-cart" onclick="toggleCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cart-items">
+
+        <p>Your cart is empty.</p>
+
+    </div>
+
+<div class="cart-footer">
+
+    <h3>
+        <span>Subtotal</span>
+        <span id="cart-total">$0.00</span>
+    </h3>
+
+    <button class="continue-shopping-button" onclick="toggleCart()">
+        Continue Shopping
+    </button>
+
+    <button class="checkout-button" onclick="openCheckout()">
+        Checkout
+    </button>
+
+</div>
+
+</div>
+
+
+<div id="checkout">
+
+    <div class="checkout-box">
+
+        <!-- CLOSE CHECKOUT -->
+        <button class="close-checkout" onclick="closeCheckout()">
+            ×
+        </button>
+
+
+        <!-- ========================= -->
+        <!-- CHECKOUT FORM              -->
+        <!-- ========================= -->
+
+        <div id="checkout-form">
+
+            <h2>Checkout</h2>
+            <p class="payment-subtitle">OFF RECORD / ORDER INTAKE</p>
+
+            <h3>Contact information</h3>
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                id="checkout-email"
+                placeholder="you@example.com"
+            >
+<label>Phone number</label>
+
+<input
+    type="tel"
+    id="checkout-phone"
+    placeholder="(555) 555-5555"
+>
+
+            <h3>Shipping address</h3>
+
+            <label>Full name</label>
+
+            <input
+                type="text"
+                id="checkout-name"
+                placeholder="Full name"
+            >
+
+            <label>Address</label>
+
+            <input
+                type="text"
+                id="checkout-address"
+                placeholder="Street address"
+            >
+
+
+            <div class="checkout-row">
+
+                <div>
+
+                    <label>City</label>
+
+                    <input
+                        type="text"
+                        id="checkout-city"
+                        placeholder="City"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>ZIP code</label>
+
+                    <input
+                        type="text"
+                        id="checkout-zip"
+                        placeholder="ZIP code"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+
+            <div class="checkout-summary">
+
+                <h3>Order summary</h3>
+
+                <div id="checkout-items"></div>
+
+
+                <div class="shipping-option">
+
+                    <label for="shipping">
+                        Shipping
+                    </label>
+
+                    <select
+                        id="shipping"
+                        onchange="updateCheckout()"
+                    >
+
+                        <option value="10">
+                            Standard Shipping — $10.00
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="checkout-line">
+
+                    <span>Subtotal</span>
+
+                    <span id="checkout-subtotal">
+                        $0.00
+                    </span>
+
+                </div>
+
+
+                <div class="checkout-line">
+
+                    <span>Shipping</span>
+
+                    <span id="checkout-shipping">
+                        $10.00
+                    </span>
+
+                </div>
+
+
+                <div class="checkout-total">
+
+                    <strong>Total</strong>
+
+
+                </div>
+
+
+                <!-- IMPORTANT:
+                     This goes to REVIEW first -->
+                <button
+                    class="payment-button"
+                    onclick="validateCheckout()"
+                >
+                    Continue to review
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ========================= -->
+        <!-- ORDER REVIEW               -->
+        <!-- ========================= -->
+
+        <div id="order-review" style="display: none;">
+
+            <button
+                type="button"
+                class="back-checkout-button"
+                onclick="backToCheckout()"
+            >
+                ← Back to checkout
+            </button>
+
+
+            <h2>Review Order</h2>
+          <p class="payment-subtitle">OFF RECORD / FINAL CHECK</p>
+
+
+            <h3>Contact information</h3>
+
+<p id="review-email"></p>
+<p id="review-phone"></p>
+
+
+            <h3>Shipping information</h3>
+
+            <p id="review-name"></p>
+
+            <p id="review-address"></p>
+
+            <p>
+                <span id="review-city"></span>,
+                <span id="review-zip"></span>
+            </p>
+
+
+            <h3>Order summary</h3>
+
+            <div id="review-items"></div>
+
+
+            <div class="checkout-line">
+
+                <span>Subtotal</span>
+
+                <span id="review-subtotal">
+                    $0.00
+                </span>
+
+            </div>
+
+
+            <div class="checkout-line">
+
+                <span>Shipping</span>
+
+                <span id="review-shipping">
+                    $0.00
+                </span>
+
+            </div>
+
+
+            <div class="checkout-total">
+
+                <strong>Total</strong>
+
+                <strong id="review-total">
+                    $0.00
+                </strong>
+
+            </div>
+
+
+            <button
+                class="payment-button"
+                onclick="openPayment()"
+            >
+                Continue to payment
+            </button>
+
+        </div>
+
+
+       <!-- ========================= -->
+<!-- PAYMENT SCREEN             -->
+<!-- ========================= -->
+
+<div id="payment-screen" class="payment-screen">
+
+    <button
+        type="button"
+        class="back-checkout-button"
+        onclick="backToReview()">
+        ← Back to review
+    </button>
+
+    <h2>Payment</h2>
+
+    <p class="payment-subtitle">
+        OFF RECORD / PAYMENT
+    </p>
+
+    <div class="payment-note">
+        <strong>TEST CHECKOUT</strong><br>
+        Demo payment only. No real payment will be processed or stored.
+    </div>
+
+    <div class="payment-section">
+
+        <h3>Payment information</h3>
+
+        <label class="payment-label">
+            Test card number
+        </label>
+
+        <input
+            type="text"
+            id="card-number"
+            class="payment-input"
+            placeholder="4242 4242 4242 4242"
+            maxlength="19">
+
+        <div class="payment-row">
+
+            <div>
+                <label class="payment-label">
+                    Expiration date
+                </label>
+
+                <input
+                    type="text"
+                    id="card-expiry"
+                    class="payment-input"
+                    placeholder="MM / YY"
+                    maxlength="5">
+            </div>
+
+            <div>
+                <label class="payment-label">
+                    CVC
+                </label>
+
+                <input
+                    type="text"
+                    id="card-cvc"
+                    class="payment-input"
+                    placeholder="123"
+                    maxlength="3">
+            </div>
+
+        </div>
+
+        <div class="test-card-box">
+
+            <strong>Demo payment</strong>
+
+            Use the displayed test information only.
+            This form does not connect to a payment processor.
+
+        </div>
+
+        <button
+            class="test-payment-button"
+            onclick="placeTestOrder()">
+
+            Place test order
+
+        </button>
+
+    </div>
+
+</div>
+
+
+        <!-- ========================= -->
+        <!-- CONFIRMATION SCREEN        -->
+        <!-- ========================= -->
+
+        <div
+            id="confirmation-screen"
+            class="confirmation-screen"
+        >
+
+            <h2>Order Confirmed</h2>
+            <p class="payment-subtitle">OFF RECORD ARCHIVE / ENTRY RECORDED</p>
+
+            <p>
+                Thank you for shopping the OFF RECORD ARCHIVE.
+            </p>
+
+
+            <p>
+                Your test order number is:
+                <strong id="order-number"></strong>
+            </p>
+
+<button
+    class="payment-button"
+    onclick="finishCheckout()">
+    Continue Shopping
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<script>
+    updateCart();
+    updateInventoryDisplay();
+function openContact() {
+
+    document.getElementById("contact-page").style.display = "block";
+
+}
+
+function closeContact() {
+
+    document.getElementById("contact-page").style.display = "none";
+
+}
+
+
+function openShippingReturns() {
+    document.getElementById("shipping-returns-page").style.display = "block";
+}
+
+function closeShippingReturns() {
+    document.getElementById("shipping-returns-page").style.display = "none";
+}
+function openTerms() {
+    document.getElementById("terms-page").style.display = "block";
+}
+
+function closeTerms() {
+    document.getElementById("terms-page").style.display = "none";
+}
+</script>
+<footer class="site-footer">
+
+    <div class="footer-text-box">
+
+        <div class="footer-brand">
+            OFF RECORD ARCHIVE
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#" onclick="openShippingReturns(); return false;">
+                Returns & Refunds
+            </a>
+
+            <a href="#" onclick="openShippingReturns(); return false;">
+                Shipping
+            </a>
+
+            <a href="#" onclick="openContact(); return false;">
+                Contact
+            </a>
+
+            <a href="#" onclick="openTerms(); return false;">
+                Terms & Conditions
+            </a>
+
+        </div>
+
+        <p class="footer-copyright">
+            © 2026 OFF RECORD ARCHIVE. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+<div id="shipping-returns-page">
+
+    <div class="shipping-returns-box">
+
+        <button
+            class="close-info-page"
+            onclick="closeShippingReturns()">
+            ×
+        </button>
+
+        <h1>Shipping & Returns</h1>
+
+        <section class="info-page-section">
+
+            <h2>Shipping</h2>
+
+            <p>
+                We currently offer Standard Shipping.
+            </p>
+
+            <h3>Standard Shipping</h3>
+
+            <p>
+                Shipping costs $10.00.
+            </p>
+<p>
+Processing time: ~1 buiness day 
+</p>
+
+<p>
+US-based shipping: 6-12 days after dispatch
+</p>
+            
+        </section>
+
+        <section class="info-page-section">
+
+            <h2>Returns & Refunds</h2>
+
+            <h3>Return Window</h3>
+
+            <p>
+                Customers may return eligible items within 7 days of the package's arrival.
+            </p>
+
+            <h3>Item Condition</h3>
+
+            <p>
+                The item must not be damaged in any way, including the removal of tags.
+            </p>
+
+            <h3>Refunds</h3>
+
+            <p>
+                A refund will be issued to your card when the return process is complete.
+            </p>
+
+        </section>
+
+    </div>
+
+</div>
+<div id="contact-page">
+
+    <div class="contact-box">
+
+        <button
+            class="close-info-page"
+            onclick="closeContact()">
+            ×
+        </button>
+
+        <div class="contact-page-header">
+
+            <div class="contact-page-label">
+                OFF RECORD / CUSTOMER SERVICE
+            </div>
+
+            <h1>
+                Contact
+            </h1>
+
+            <div class="contact-page-divider"></div>
+
+        </div>
+
+        <p class="contact-page-intro">
+            QUESTIONS ABOUT AN ORDER, A PRODUCT, OR SOMETHING IN THE
+            ARCHIVE? 
+        </p>
+<p class="contact-page-intro">
+SEND US A MESSAGE BELOW TO OFFRECORDHELP@outlook.com
+</p>
+   <form
+    class="contact-form"
+    action="https://formspree.io/f/mqpaqbkl"
+    method="POST">
+<input
+    type="hidden"
+    name="_subject"
+    value="OFF RECORD ARCHIVE — Contact Inquiry">
+
+            <label for="contact-email">
+                Email
+            </label>
+
+       <input
+    type="email"
+    id="contact-email"
+    name="email"
+    required>
+
+            <label for="contact-subject">
+                Subject
+            </label>
+
+          <textarea
+    id="contact-message"
+    name="message"
+    required></textarea>
+
+            <label for="contact-message">
+                Message
+            </label>
+<textarea
+    id="contact-message"
+    name="message"
+    required></textarea>
+
+            <button
+                type="submit"
+                class="contact-submit-button">
+                Submit Inquiry
+            </button>
+
+            <div
+                id="contact-status"
+                class="contact-status">
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- TERMS & CONDITIONS PAGE -->
+
+<div id="terms-page">
+
+    <div class="terms-box">
+
+        <button
+            class="close-info-page"
+            onclick="closeTerms()">
+            ×
+        </button>
+
+        <div class="terms-page-header">
+
+            <div class="terms-page-label">
+                OFF RECORD / TERMS
+            </div>
+
+            <h1>
+                Terms & Conditions
+            </h1>
+
+            <div class="terms-page-divider"></div>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>1. General</h2>
+
+            <p>
+                These Terms & Conditions govern the use of the OFF RECORD
+                ARCHIVE website and the purchase of products through the site.
+                By using the website or placing an order, you agree to these
+                terms.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>2. Products & Pricing</h2>
+
+            <p>
+                OFF RECORD ARCHIVE offers a curated selection of clothing and
+                streetwear products. Product images, descriptions, colors,
+                sizing, availability, and pricing are provided as accurately
+                as possible.
+            </p>
+
+            <p>
+                Prices are displayed in U.S. dollars and may change at any
+                time. A price change will not affect an order that has already
+                been accepted.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>3. Orders</h2>
+
+            <p>
+                Submitting an order does not automatically guarantee that the
+                order will be accepted. We reserve the right to review,
+                refuse, or cancel an order when necessary.
+            </p>
+
+            <p>
+                Customers are responsible for providing accurate contact and
+                shipping information during checkout.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>4. Shipping</h2>
+
+            <p>
+                OFF RECORD ARCHIVE currently offers Standard Shipping.
+            </p>
+
+            <p>
+                Shipping costs and estimated processing and delivery times are
+                listed on our Shipping page and may vary depending on the
+                order.
+            </p>
+
+            <p>
+                Delivery estimates are not guaranteed and may be affected by
+                circumstances outside of our control.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>5. Returns & Refunds</h2>
+
+            <p>
+                Returns and refunds are handled according to the policies
+                listed on our Shipping & Returns page.
+            </p>
+
+            <p>
+                Customers should review those policies before placing an
+                order.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>6. Website Use</h2>
+
+            <p>
+                The OFF RECORD ARCHIVE website is intended for lawful use.
+                Users may not interfere with the operation of the website,
+                attempt to gain unauthorized access, or misuse the site's
+                content or functionality.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>7. Website Content</h2>
+
+            <p>
+                The OFF RECORD ARCHIVE name, branding, graphics, text, product
+                descriptions, and other original website content are used for
+                the operation and presentation of the store. OFF RECORD ARCHIVE is not affiliated with other brands.
+            </p>
+
+            <p>
+                Content may not be copied, reproduced, or redistributed without
+                appropriate permission.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>8. Changes to These Terms</h2>
+
+            <p>
+                OFF RECORD ARCHIVE may update these Terms & Conditions as the
+                website, products, or policies change.
+            </p>
+
+            <p>
+                The current version published on this page will apply to
+                future use of the website and future orders.
+            </p>
+
+        </div>
+
+
+        <div class="terms-section">
+
+            <h2>9. Contact</h2>
+
+            <p>
+                Questions about these Terms & Conditions can be submitted
+                through the Contact page or by contacting
+                OFFRECORDHELP@outlook.com.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+<div id="shop">
+
+   <div class="shop-header">
+
+    <h2>Shop</h2>
+
+    <div class="shop-header-actions">
+
+        <button class="orders-button" onclick="openOrders()">
+            Orders
+        </button>
+
+        <button class="close-shop" onclick="toggleShop()">
+            ×
+        </button>
+
+    </div>
+
+</div>
+
+   <div class="shop-products">
+
+    <div class="shop-product">
+
+        <img
+            src="jacket.png"
+            alt="ARCHIVE 001 — 1996 RETRO NUPTSE JACKET">
+
+        <h3>ARCHIVE 001 — 1996 RETRO NUPTSE JACKET</h3>
+
+        <p>$90.00</p>
+
+       <button
+    class="view-product-button"
+    onclick="toggleShop()">
+    View Product
+</button>
+
+    </div>
+
+   <div class="shop-product">
+
+    <img
+    class="archive-002-shop-image"
+    src="polo-bear-black.png"
+    alt="Polo Bear Knit Sweater">
+
+    <h3>ARCHIVE 002 — POLO BEAR KNIT</h3>
+
+    <p>$65.00</p>
+
+       <button
+        class="view-product-button"
+        onclick="goToArchive002()">
+        View Product
+    </button>
+
+</div>
+
+<div class="shop-product">
+
+    <img
+        src="carhartt-jacket.png"
+        alt="Carhartt WIP Detroit Jacket">
+
+    <h3>ARCHIVE 003 — CARHARTT WIP DETROIT JACKET</h3>
+
+    <p>$75.00</p>
+
+    <button
+        class="view-product-button"
+        onclick="goToArchive003()">
+        View Product
+    </button>
+
+</div>
+
+
+<div class="shop-product">
+
+    <img
+        src="stussy.png"
+        alt="Stüssy Jacket">
+
+    <h3>ARCHIVE 004 — STÜSSY JACKET</h3>
+
+    <p>$70.00</p>
+
+       <button
+        class="view-product-button"
+        onclick="goToArchive004()">
+        View Product
+    </button>
+
+</div>
+
+<div class="shop-product">
+
+    <img
+        src="polo-sweats.png"
+        alt="Polo Ralph Lauren Baggy Sweatpants">
+
+    <h3>ARCHIVE 005 — POLO RALPH LAUREN BAGGY SWEATPANTS</h3>
+
+    <p>$60.00</p>
+
+    <button
+        class="view-product-button"
+        onclick="goToArchive005()">
+        View Product
+    </button>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<div id="orders-page">
+
+    <div class="orders-box">
+
+        <button
+            class="close-orders"
+            onclick="closeOrders()">
+            ×
+        </button>
+
+        <h1>Your Orders</h1>
+
+        <div id="orders-list"></div>
+
+    </div>
+
+</div>
+</body>
+</html>
